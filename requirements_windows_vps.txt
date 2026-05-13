@@ -1,0 +1,6 @@
+# Install on Windows VPS ONLY
+# Run: pip install -r requirements_windows_vps.txt
+
+flask==3.0.3
+MetaTrader5==5.0.45
+python-dotenv==1.0.1

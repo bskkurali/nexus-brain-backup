@@ -1,0 +1,249 @@
+{
+  "version": 1,
+  "created": "2026-05-11T23:15:56.848840",
+  "last_updated": "2026-05-12T23:29:58.642751",
+  "strategies": {
+    "sniper_pullback": {
+      "name": "EMA Pullback Sniper",
+      "source": "built-in",
+      "description": "Price pulls back to EMA9 in bull trend, closes above with volume",
+      "conditions": {
+        "trend": "bull",
+        "rsi_min": 40,
+        "rsi_max": 75,
+        "volume_min": 0.65,
+        "ema_alignment": "9>21>50",
+        "trigger": "pullback to EMA9 + bullish close"
+      },
+      "performance": {
+        "trades": 0,
+        "wins": 0,
+        "losses": 0,
+        "win_rate": 0
+      },
+      "best_session": "London/NY overlap",
+      "notes": "Core strategy \u2014 highest confidence"
+    },
+    "rsi_oversold_bounce": {
+      "name": "RSI Oversold Bounce",
+      "source": "built-in",
+      "description": "RSI below 30, price at support, momentum reversal",
+      "conditions": {
+        "rsi_max": 30,
+        "near_support": true,
+        "volume_min": 0.5,
+        "trigger": "RSI cross above 30"
+      },
+      "performance": {
+        "trades": 0,
+        "wins": 0,
+        "losses": 0,
+        "win_rate": 0
+      },
+      "best_session": "Any",
+      "notes": "High win rate at key support levels"
+    },
+    "london_breakout": {
+      "name": "London Open Breakout",
+      "source": "built-in",
+      "description": "First 30min of London session breakout with volume",
+      "conditions": {
+        "session": "LONDON",
+        "volume_min": 1.2,
+        "ema_spread_min": 0.2,
+        "trigger": "Break of Asian range high/low"
+      },
+      "performance": {
+        "trades": 0,
+        "wins": 0,
+        "losses": 0,
+        "win_rate": 0
+      },
+      "best_session": "London open 13:30 IST",
+      "notes": "Strong institutional flow at London open"
+    },
+    "vwap_reclaim": {
+      "name": "VWAP Reclaim",
+      "source": "built-in",
+      "description": "Price reclaims VWAP from below with momentum",
+      "conditions": {
+        "trigger": "close crosses above VWAP",
+        "volume_min": 0.8,
+        "rsi_min": 40
+      },
+      "performance": {
+        "trades": 0,
+        "wins": 0,
+        "losses": 0,
+        "win_rate": 0
+      },
+      "best_session": "London/NY",
+      "notes": "Institutional benchmark \u2014 strong signal"
+    }
+  },
+  "trade_history": [
+    {
+      "ticket": "PAPER-8DCAA211",
+      "direction": "SELL",
+      "entry": 4723.5,
+      "close": 4709.36,
+      "pnl": 28.28,
+      "won": true,
+      "strategy": "sniper_pro",
+      "session": "ASIAN",
+      "rsi_at_entry": 50,
+      "notes": "TP_HIT",
+      "timestamp": "2026-05-12T11:34:28.617444"
+    },
+    {
+      "ticket": "PAPER-211742FB",
+      "direction": "BUY",
+      "entry": 4712.8,
+      "sl": 4706.96,
+      "tp": 4730.32,
+      "session": "ASIAN",
+      "confidence": 75,
+      "timestamp": "2026-05-12T11:59:34.794477",
+      "mode": "PAPER",
+      "won": null,
+      "pnl": null
+    },
+    {
+      "ticket": "PAPER-211742FB",
+      "direction": "BUY",
+      "entry": 4712.8,
+      "close": 4706.96,
+      "pnl": -5.84,
+      "won": false,
+      "strategy": "sniper_pro",
+      "session": "ASIAN",
+      "rsi_at_entry": 50,
+      "notes": "SL_HIT",
+      "timestamp": "2026-05-12T12:00:28.140741"
+    },
+    {
+      "ticket": "PAPER-7EBB209D",
+      "direction": "BUY",
+      "entry": 4711.2,
+      "sl": 4705.15,
+      "tp": 4729.36,
+      "session": "ASIAN",
+      "confidence": 75,
+      "timestamp": "2026-05-12T12:14:32.842809",
+      "mode": "PAPER",
+      "won": null,
+      "pnl": null
+    },
+    {
+      "ticket": "PAPER-7EBB209D",
+      "direction": "BUY",
+      "entry": 4711.2,
+      "close": 4705.15,
+      "pnl": -6.05,
+      "won": false,
+      "strategy": "sniper_pro",
+      "session": "ASIAN",
+      "rsi_at_entry": 50,
+      "notes": "SL_HIT",
+      "timestamp": "2026-05-12T12:15:28.138129"
+    },
+    {
+      "ticket": "PAPER-E04A85A7",
+      "direction": "SELL",
+      "entry": 4707.89990234375,
+      "close": 4702.6,
+      "pnl": 10.6,
+      "won": true,
+      "strategy": "sniper_pro",
+      "session": "LONDON",
+      "rsi_at_entry": 50,
+      "notes": "TRAIL_HIT",
+      "timestamp": "2026-05-12T13:53:58.148831"
+    },
+    {
+      "ticket": "PAPER-B86F9F25",
+      "direction": "BUY",
+      "entry": 4713.1,
+      "sl": 4706.82,
+      "tp": 4731.93,
+      "session": "LONDON",
+      "confidence": 75,
+      "timestamp": "2026-05-12T18:22:57.897531",
+      "mode": "PAPER",
+      "won": null,
+      "pnl": null
+    },
+    {
+      "ticket": "PAPER-B86F9F25",
+      "direction": "BUY",
+      "entry": 4713.1,
+      "close": 4706.82,
+      "pnl": -6.28,
+      "won": false,
+      "strategy": "sniper_pro",
+      "session": "LONDON",
+      "rsi_at_entry": 50,
+      "notes": "SL_HIT",
+      "timestamp": "2026-05-12T18:28:19.988615"
+    },
+    {
+      "ticket": "PAPER-64D5022E",
+      "direction": "SELL",
+      "entry": 4684.9,
+      "sl": 4689.3,
+      "tp": 4667.29,
+      "session": "ASIAN",
+      "confidence": 83,
+      "timestamp": "2026-05-12T23:29:58.642735",
+      "mode": "PAPER",
+      "won": null,
+      "pnl": null
+    }
+  ],
+  "patterns": {
+    "asian_session": "Low volume, range-bound, avoid trading",
+    "london_open": "Volume spike, breakout likely, watch direction",
+    "ny_open": "High volatility, follow trend",
+    "overlap": "Best session \u2014 highest volume and movement",
+    "rsi_30": "Strong bounce zone historically",
+    "rsi_70": "Distribution zone \u2014 watch for reversal",
+    "dxy_inverse": "Gold moves opposite to DXY 85% of time"
+  },
+  "research_notes": [],
+  "session_stats": {
+    "LONDON": {
+      "trades": 2,
+      "wins": 1
+    },
+    "LONDON_NY_OVERLAP": {
+      "trades": 0,
+      "wins": 0
+    },
+    "NEW_YORK": {
+      "trades": 0,
+      "wins": 0
+    },
+    "ASIAN": {
+      "trades": 3,
+      "wins": 1
+    }
+  },
+  "key_levels": {
+    "major_support": [],
+    "major_resistance": [],
+    "weekly_high": null,
+    "weekly_low": null
+  },
+  "risk_insights": [
+    "Never trade in Asian session unless RSI extreme (<25 or >75)",
+    "London open first 15min most volatile \u2014 wait for direction",
+    "Always check DXY before gold BUY \u2014 should be falling",
+    "Low volume (<0.5x) = trap setup \u2014 avoid",
+    "News events create 30min blackout before and after",
+    "WIN PATTERN: SELL in ASIAN at RSI=50.0 \u2192 +$28.28",
+    "LOSS PATTERN: BUY in ASIAN at RSI=50.0 \u2192 $-5.84",
+    "LOSS PATTERN: BUY in ASIAN at RSI=50.0 \u2192 $-6.05",
+    "WIN PATTERN: SELL in LONDON at RSI=50.0 \u2192 +$10.60",
+    "LOSS PATTERN: BUY in LONDON at RSI=50.0 \u2192 $-6.28"
+  ]
+}

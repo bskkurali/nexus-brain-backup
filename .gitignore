@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.log
+logs/
+.pytest_cache/
+.env
+__MACOSX/
+backup/
+fix_*.py
+patch_*.py
+*.DS_Store

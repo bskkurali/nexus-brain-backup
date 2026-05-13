@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXUS GOLD AI</title>
+<style>
+:root{
+  --bg:#07070f;--bg2:#0f0f1a;--bg3:#16162a;--border:#1e1e35;
+  --gold:#f0b430;--green:#00e676;--red:#ff4444;--blue:#4fc3f7;
+  --purple:#b39ddb;--text:#e8e8f0;--dim:#6060a0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'SF Mono',Consolas,monospace;font-size:12px}
+
+/* Header */
+.hdr{background:var(--bg2);border-bottom:1px solid var(--border);padding:10px 16px;
+     display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:10}
+.hdr-logo{font-size:15px;font-weight:700;color:var(--gold);letter-spacing:2px}
+.hdr-sub{font-size:10px;color:var(--dim)}
+.hdr-price{margin-left:auto;font-size:20px;font-weight:700;color:var(--gold)}
+.hdr-change{font-size:11px;padding:2px 8px;border-radius:3px}
+.up{background:rgba(0,230,118,.15);color:var(--green)}
+.dn{background:rgba(255,68,68,.15);color:var(--red)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 6px var(--green)}
+.mode-badge{padding:3px 10px;border-radius:3px;font-size:10px;font-weight:700;
+            background:rgba(255,68,68,.2);color:var(--red);border:1px solid rgba(255,68,68,.4)}
+
+/* Grid */
+.grid{display:grid;grid-template-columns:260px 1fr 300px;gap:1px;background:var(--border);height:calc(100vh - 45px)}
+.col{background:var(--bg2);overflow-y:auto}
+
+/* Panels */
+.panel{border-bottom:1px solid var(--border);padding:12px}
+.panel-title{font-size:9px;letter-spacing:2px;color:var(--dim);margin-bottom:10px;text-transform:uppercase}
+
+/* Stat rows */
+.stat{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.stat-label{color:var(--dim);font-size:10px}
+.stat-val{font-weight:700}
+.bull{color:var(--green)}.bear{color:var(--red)}.neutral{color:var(--gold)}
+
+/* Wallet */
+.wallet-balance{font-size:28px;font-weight:700;color:var(--gold);text-align:center;padding:8px 0}
+.wallet-equity{font-size:13px;color:var(--dim);text-align:center}
+.survival-bar{height:6px;background:var(--border);border-radius:3px;margin:8px 0;overflow:hidden}
+.survival-fill{height:100%;background:var(--green);border-radius:3px;transition:width .5s}
+
+/* Decision badge */
+.decision{text-align:center;padding:12px;margin:8px 0;border-radius:6px;font-size:18px;font-weight:700;letter-spacing:2px}
+.dec-buy{background:rgba(0,230,118,.1);color:var(--green);border:1px solid rgba(0,230,118,.3)}
+.dec-sell{background:rgba(255,68,68,.1);color:var(--red);border:1px solid rgba(255,68,68,.3)}
+.dec-wait{background:rgba(96,96,160,.1);color:var(--dim);border:1px solid var(--border)}
+
+/* Indicators */
+.ind-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.ind{background:var(--bg3);border-radius:4px;padding:6px 8px}
+.ind-name{font-size:9px;color:var(--dim);margin-bottom:2px}
+.ind-val{font-size:13px;font-weight:700}
+
+/* Positions */
+.pos{background:var(--bg3);border-radius:4px;padding:8px;margin-bottom:6px;border-left:3px solid var(--green)}
+.pos.sell{border-left-color:var(--red)}
+.pos-head{display:flex;justify-content:space-between;margin-bottom:4px}
+.pos-dir{font-weight:700;font-size:11px}
+.pos-pnl{font-weight:700}
+.pos-detail{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;font-size:10px;color:var(--dim)}
+
+/* Strategies */
+.strat{background:var(--bg3);border-radius:4px;padding:7px;margin-bottom:5px}
+.strat-head{display:flex;justify-content:space-between;align-items:center}
+.strat-name{font-size:11px;font-weight:700}
+.wr-bar{height:4px;background:var(--border);border-radius:2px;margin-top:5px;overflow:hidden}
+.wr-fill{height:100%;border-radius:2px;background:var(--green)}
+
+/* Live feed */
+.feed{padding:10px}
+.log{padding:5px 8px;border-left:2px solid var(--border);margin-bottom:4px;border-radius:0 3px 3px 0}
+.log-time{color:var(--dim);font-size:10px;margin-right:8px}
+.log.success{border-left-color:var(--green);background:rgba(0,230,118,.04)}
+.log.error{border-left-color:var(--red);background:rgba(255,68,68,.04)}
+.log.warn{border-left-color:var(--gold);background:rgba(240,180,48,.04)}
+.log.brain{border-left-color:var(--purple);background:rgba(179,157,219,.04)}
+.log.trade{border-left-color:var(--blue);background:rgba(79,195,247,.08)}
+
+/* Tabs */
+.tabs{display:flex;border-bottom:1px solid var(--border)}
+.tab{flex:1;padding:8px;text-align:center;cursor:pointer;font-size:10px;color:var(--dim);
+     border-bottom:2px solid transparent;transition:all .2s}
+.tab.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+
+/* Chart tab */
+#tab-chart{height:calc(100vh - 90px);padding:0;overflow:hidden}
+.tv-container{width:100%;height:100%}
+.chart-toolbar{display:flex;gap:6px;padding:8px 10px;border-bottom:1px solid var(--border);
+               flex-wrap:wrap;align-items:center}
+.tf-btn{padding:3px 10px;border-radius:3px;border:1px solid var(--border);
+        background:var(--bg3);color:var(--dim);cursor:pointer;font-size:10px;
+        font-family:inherit;transition:all .15s}
+.tf-btn:hover,.tf-btn.active{background:rgba(240,180,48,.15);color:var(--gold);
+                              border-color:rgba(240,180,48,.4)}
+.chart-label{font-size:9px;color:var(--dim);letter-spacing:1px;margin-right:4px}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="dot" id="dot"></div>
+  <div>
+    <div class="hdr-logo">⚡ NEXUS GOLD AI</div>
+    <div class="hdr-sub" id="hdr-session">Initializing...</div>
+  </div>
+  <div style="margin-left:20px">
+    <div class="hdr-price" id="hdr-price">$--</div>
+    <div class="hdr-sub">XAUUSD · GOLD</div>
+  </div>
+  <div style="margin-left:8px">
+    <span class="hdr-change" id="hdr-change">--</span>
+  </div>
+  <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
+    <span class="mode-badge" id="mode-badge">LIVE</span>
+    <span style="color:var(--dim);font-size:10px" id="clock">--:--:--</span>
+  </div>
+</div>
+
+<div class="grid">
+
+<!-- LEFT COL -->
+<div class="col">
+
+  <!-- Wallet -->
+  <div class="panel">
+    <div class="panel-title">💰 Wallet</div>
+    <div class="wallet-balance" id="balance">$--</div>
+    <div class="wallet-equity" id="equity-line">Equity: $-- | PnL: $--</div>
+    <div class="survival-bar"><div class="survival-fill" id="survival-fill" style="width:100%"></div></div>
+    <div class="stat">
+      <span class="stat-label">Survival</span>
+      <span class="stat-val" id="survival-pct">100%</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Mode</span>
+      <span class="stat-val neutral" id="survival-mode">--</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Daily target</span>
+      <span class="stat-val" id="daily-target">--</span>
+    </div>
+  </div>
+
+  <!-- Brain Decision -->
+  <div class="panel">
+    <div class="panel-title">🧠 Brain Decision</div>
+    <div class="decision dec-wait" id="decision-badge">WAIT</div>
+    <div style="font-size:10px;color:var(--dim);text-align:center;margin-top:6px" id="decision-reason">Scanning...</div>
+    <div class="stat" style="margin-top:8px">
+      <span class="stat-label">Confidence</span>
+      <span class="stat-val" id="confidence">--%</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Quality</span>
+      <span class="stat-val" id="quality">--</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">H4 Bias</span>
+      <span class="stat-val" id="h4-bias">--</span>
+    </div>
+  </div>
+
+  <!-- Risk -->
+  <div class="panel">
+    <div class="panel-title">🛡️ Risk</div>
+    <div class="stat">
+      <span class="stat-label">Open trades</span>
+      <span class="stat-val" id="open-trades">0/2</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Daily PnL</span>
+      <span class="stat-val" id="daily-pnl">$--</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Session</span>
+      <span class="stat-val" id="session">--</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Idle</span>
+      <span class="stat-val" id="idle-hours">--</span>
+    </div>
+  </div>
+
+  <!-- AI Status -->
+  <div class="panel">
+    <div class="panel-title">🤖 AI Status</div>
+    <div class="stat">
+      <span class="stat-label">Claude</span>
+      <span class="stat-val" id="ai-claude">--</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Gemma</span>
+      <span class="stat-val" id="ai-gemma">--</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Mode</span>
+      <span class="stat-val" id="ai-mode">--</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- MIDDLE COL -->
+<div class="col">
+
+  <div class="tabs">
+    <div class="tab active" onclick="showTab('market')">📊 Market</div>
+    <div class="tab" onclick="showTab('chart')">📈 Chart</div>
+    <div class="tab" onclick="showTab('positions')">💼 Positions</div>
+    <div class="tab" onclick="showTab('strategies')">🎯 Strategies</div>
+    <div class="tab" onclick="showTab('memory')">🧠 Memory</div>
+  </div>
+
+  <!-- Market Tab -->
+  <div class="tab-content active" id="tab-market">
+    <div class="panel">
+      <div class="panel-title">H4 Timeframe (Trend)</div>
+      <div class="ind-grid">
+        <div class="ind"><div class="ind-name">TREND</div><div class="ind-val" id="h4-trend">--</div></div>
+        <div class="ind"><div class="ind-name">RSI</div><div class="ind-val" id="h4-rsi">--</div></div>
+        <div class="ind"><div class="ind-name">ADX</div><div class="ind-val" id="h4-adx">--</div></div>
+        <div class="ind"><div class="ind-name">MACD</div><div class="ind-val" id="h4-macd">--</div></div>
+        <div class="ind"><div class="ind-name">EMA21</div><div class="ind-val" id="h4-e21">--</div></div>
+        <div class="ind"><div class="ind-name">EMA50</div><div class="ind-val" id="h4-e50">--</div></div>
+        <div class="ind"><div class="ind-name">ATR</div><div class="ind-val" id="h4-atr">--</div></div>
+        <div class="ind"><div class="ind-name">MOMENTUM</div><div class="ind-val" id="h4-mom">--</div></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">M5 Timeframe (Entry)</div>
+      <div class="ind-grid">
+        <div class="ind"><div class="ind-name">RSI</div><div class="ind-val" id="m5-rsi">--</div></div>
+        <div class="ind"><div class="ind-name">STOCH</div><div class="ind-val" id="m5-stoch">--</div></div>
+        <div class="ind"><div class="ind-name">MACD</div><div class="ind-val" id="m5-macd">--</div></div>
+        <div class="ind"><div class="ind-name">ADX</div><div class="ind-val" id="m5-adx">--</div></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">Key Levels</div>
+      <div class="stat"><span class="stat-label">Swing High</span><span class="stat-val" id="swing-high">--</span></div>
+      <div class="stat"><span class="stat-label">Fib 61.8%</span><span class="stat-val" id="fib618">--</span></div>
+      <div class="stat"><span class="stat-label">Fib 50.0%</span><span class="stat-val" id="fib50">--</span></div>
+      <div class="stat"><span class="stat-label">Fib 38.2%</span><span class="stat-val" id="fib382">--</span></div>
+      <div class="stat"><span class="stat-label">VWAP</span><span class="stat-val" id="vwap">--</span></div>
+      <div class="stat"><span class="stat-label">Swing Low</span><span class="stat-val" id="swing-low">--</span></div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">News & Sentiment</div>
+      <div class="stat"><span class="stat-label">Sentiment</span><span class="stat-val" id="news-sentiment">--</span></div>
+      <div id="news-headlines" style="margin-top:6px;color:var(--dim);font-size:10px;line-height:1.8"></div>
+    </div>
+  </div>
+
+  <!-- Chart Tab -->
+  <div class="tab-content" id="tab-chart">
+    <div class="chart-toolbar">
+      <span class="chart-label">TF:</span>
+      <button class="tf-btn" onclick="setTF('1')">1m</button>
+      <button class="tf-btn active" id="tf-5" onclick="setTF('5')">5m</button>
+      <button class="tf-btn" onclick="setTF('15')">15m</button>
+      <button class="tf-btn" onclick="setTF('60')">1H</button>
+      <button class="tf-btn" onclick="setTF('240')">4H</button>
+      <button class="tf-btn" onclick="setTF('D')">1D</button>
+      <span style="margin-left:12px;font-size:9px;color:var(--dim)">|</span>
+      <span class="chart-label" style="margin-left:12px">STRATEGY:</span>
+      <button class="tf-btn active" onclick="loadStrategy('ribbon')">🎀 EMA Ribbon</button>
+      <button class="tf-btn" onclick="loadStrategy('fib')">🎯 Fib Bounce</button>
+      <span style="margin-left:auto;font-size:9px;color:var(--dim)">
+        Click <b style="color:var(--gold)">Indicators</b> in chart toolbar to add more
+      </span>
+    </div>
+    <div class="tv-container" id="tv-container"></div>
+  </div>
+
+  <!-- Positions Tab -->
+  <div class="tab-content" id="tab-positions">
+    <div class="panel">
+      <div class="panel-title">Open Positions (MT5)</div>
+      <div id="positions-list"><div style="color:var(--dim);padding:12px">No open positions</div></div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">Trade Stats</div>
+      <div class="stat"><span class="stat-label">Total trades</span><span class="stat-val" id="stat-total">--</span></div>
+      <div class="stat"><span class="stat-label">Wins</span><span class="stat-val bull" id="stat-wins">--</span></div>
+      <div class="stat"><span class="stat-label">Losses</span><span class="stat-val bear" id="stat-losses">--</span></div>
+      <div class="stat"><span class="stat-label">Win rate</span><span class="stat-val" id="stat-wr">--%</span></div>
+      <div class="stat"><span class="stat-label">Total PnL</span><span class="stat-val" id="stat-pnl">$--</span></div>
+    </div>
+  </div>
+
+  <!-- Strategies Tab -->
+  <div class="tab-content" id="tab-strategies">
+    <div class="panel">
+      <div class="panel-title">Backtested Strategies</div>
+      <div id="strategies-list"><div style="color:var(--dim)">Running backtest...</div></div>
+    </div>
+    <div class="panel" id="ai-search-panel" style="display:none">
+      <div class="panel-title">🤖 AI Strategy Search</div>
+      <div class="stat"><span class="stat-label">Status</span><span class="stat-val" id="ai-status">--</span></div>
+      <div class="stat"><span class="stat-label">Attempts</span><span class="stat-val" id="ai-attempts">0 / 30</span></div>
+      <div class="stat"><span class="stat-label">Best WR Found</span><span class="stat-val bull" id="ai-best-wr">--</span></div>
+      <div class="stat"><span class="stat-label">Best Strategy</span><span class="stat-val" id="ai-best-name">--</span></div>
+      <div class="stat"><span class="stat-label">Target</span><span class="stat-val gold" id="ai-target">80% WR</span></div>
+      <div style="margin-top:8px">
+        <div style="font-size:10px;color:var(--dim);margin-bottom:4px">Progress toward target</div>
+        <div class="wr-bar"><div class="wr-fill" id="ai-progress-bar" style="width:0%;background:var(--gold)"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Memory Tab -->
+  <div class="tab-content" id="tab-memory">
+    <div class="panel">
+      <div class="panel-title">Brain Memory</div>
+      <div class="stat"><span class="stat-label">News reports</span><span class="stat-val" id="mem-news">--</span></div>
+      <div class="stat"><span class="stat-label">Tech reports</span><span class="stat-val" id="mem-tech">--</span></div>
+      <div class="stat"><span class="stat-label">Win patterns</span><span class="stat-val" id="mem-wins">--</span></div>
+      <div class="stat"><span class="stat-label">Loss patterns</span><span class="stat-val" id="mem-losses">--</span></div>
+      <div class="stat"><span class="stat-label">Decisions</span><span class="stat-val" id="mem-decisions">--</span></div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">Session Performance</div>
+      <div id="session-stats" style="color:var(--dim)">Loading...</div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">Recent Win Patterns</div>
+      <div id="win-patterns" style="color:var(--dim);font-size:10px">Loading...</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- RIGHT COL: Live Feed -->
+<div class="col">
+  <div style="padding:10px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+    <span style="color:var(--dim);font-size:10px;letter-spacing:1px">LIVE FEED</span>
+    <span style="color:var(--green);font-size:9px">● STREAMING</span>
+  </div>
+  <div id="feed" class="feed"></div>
+</div>
+
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+
+// Clock
+setInterval(()=>{
+  const now = new Date();
+  const ist = new Date(now.getTime() + (5.5*3600000));
+  $('clock').textContent = ist.toISOString().substr(11,8)+' IST';
+},1000);
+
+// TradingView widget instance + current settings
+let _tvWidget = null;
+let _tvInterval = '5';
+
+function buildTV(interval){
+  const container = $('tv-container');
+  container.innerHTML = '';
+  const div = document.createElement('div');
+  div.id = 'tv_chart_adv';
+  div.style.cssText = 'width:100%;height:calc(100vh - 132px)';
+  container.appendChild(div);
+
+  const script = document.createElement('script');
+  script.src = 'https://s3.tradingview.com/tv.js';
+  script.onload = () => {
+    _tvWidget = new TradingView.widget({
+      container_id:     'tv_chart_adv',
+      width:            '100%',
+      height:           '100%',
+      symbol:           'OANDA:XAUUSD',
+      interval:         interval,
+      timezone:         'Asia/Kolkata',
+      theme:            'dark',
+      style:            '1',          // candlestick
+      locale:           'en',
+      toolbar_bg:       '#0f0f1a',
+      enable_publishing: false,
+      hide_side_toolbar: false,
+      allow_symbol_change: false,
+      save_image:       false,
+      // Pre-load strategy indicators matching the bot
+      studies: [
+        'RSI@tv-basicstudies',
+        'MACD@tv-basicstudies',
+        'Volume@tv-basicstudies',
+      ],
+      // EMA Ribbon: 8·13·21·34·55·89
+      studies_overrides: {
+        "moving average exponential.length": 8,
+      },
+      overrides: {
+        'mainSeriesProperties.candleStyle.upColor':     '#00e676',
+        'mainSeriesProperties.candleStyle.downColor':   '#ff4444',
+        'mainSeriesProperties.candleStyle.borderUpColor':   '#00e676',
+        'mainSeriesProperties.candleStyle.borderDownColor': '#ff4444',
+        'mainSeriesProperties.candleStyle.wickUpColor':     '#00e676',
+        'mainSeriesProperties.candleStyle.wickDownColor':   '#ff4444',
+        'paneProperties.background':                    '#07070f',
+        'paneProperties.vertGridProperties.color':      '#1e1e35',
+        'paneProperties.horzGridProperties.color':      '#1e1e35',
+        'scalesProperties.textColor':                   '#6060a0',
+      },
+    });
+  };
+  // Remove old script if exists
+  const old = document.getElementById('tv-script');
+  if(old) old.remove();
+  script.id = 'tv-script';
+  document.head.appendChild(script);
+}
+
+function setTF(tf){
+  _tvInterval = tf;
+  document.querySelectorAll('.tf-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  buildTV(tf);
+}
+
+function loadStrategy(name){
+  document.querySelectorAll('.tf-btn').forEach(b=>{
+    if(b.textContent.includes('Ribbon')||b.textContent.includes('Fib'))
+      b.classList.remove('active');
+  });
+  event.target.classList.add('active');
+
+  // Rebuild chart with strategy-specific studies
+  const container = $('tv-container');
+  container.innerHTML = '';
+  const div = document.createElement('div');
+  div.id = 'tv_chart_adv';
+  div.style.cssText = 'width:100%;height:calc(100vh - 132px)';
+  container.appendChild(div);
+
+  const ribbonStudies = [
+    'RSI@tv-basicstudies',
+    'MACD@tv-basicstudies',
+    'Volume@tv-basicstudies',
+  ];
+  const fibStudies = [
+    'RSI@tv-basicstudies',
+    'MACD@tv-basicstudies',
+    'Volume@tv-basicstudies',
+    'BB@tv-basicstudies',
+  ];
+
+  if(window.TradingView){
+    _tvWidget = new TradingView.widget({
+      container_id:      'tv_chart_adv',
+      width:             '100%', height: '100%',
+      symbol:            'OANDA:XAUUSD',
+      interval:          _tvInterval,
+      timezone:          'Asia/Kolkata',
+      theme:             'dark', style: '1', locale: 'en',
+      toolbar_bg:        '#0f0f1a',
+      enable_publishing: false,
+      hide_side_toolbar: false,
+      allow_symbol_change: false,
+      studies: name === 'ribbon' ? ribbonStudies : fibStudies,
+      overrides: {
+        'mainSeriesProperties.candleStyle.upColor':      '#00e676',
+        'mainSeriesProperties.candleStyle.downColor':    '#ff4444',
+        'mainSeriesProperties.candleStyle.borderUpColor':   '#00e676',
+        'mainSeriesProperties.candleStyle.borderDownColor': '#ff4444',
+        'mainSeriesProperties.candleStyle.wickUpColor':     '#00e676',
+        'mainSeriesProperties.candleStyle.wickDownColor':   '#ff4444',
+        'paneProperties.background':     '#07070f',
+        'paneProperties.vertGridProperties.color': '#1e1e35',
+        'paneProperties.horzGridProperties.color': '#1e1e35',
+        'scalesProperties.textColor':    '#6060a0',
+      },
+    });
+  }
+}
+
+function showTab(name){
+  const names = ['market','chart','positions','strategies','memory'];
+  document.querySelectorAll('.tab').forEach((t,i) => {
+    t.classList.toggle('active', names[i] === name);
+  });
+  document.querySelectorAll('.tab-content').forEach(c => {
+    c.classList.toggle('active', c.id === 'tab-' + name);
+  });
+  // Lazy-load chart only when tab is first opened
+  if(name === 'chart' && !_tvWidget){
+    buildTV(_tvInterval);
+  }
+}
+
+function color(val, up='bull', dn='bear'){
+  return val>0?up:val<0?dn:'neutral';
+}
+
+function fmt(n, prefix='$'){
+  if(n===undefined||n===null||n==='--') return '--';
+  return prefix+parseFloat(n).toLocaleString('en',{minimumFractionDigits:2,maximumFractionDigits:2});
+}
+
+// ── Poll price ──────────────────────────────────────
+async function pollPrice(){
+  try{
+    const d = await fetch('/api/price').then(r=>r.json());
+    if(d.price && d.price>2000){
+      $('hdr-price').textContent = '$'+d.price.toLocaleString('en',{minimumFractionDigits:2});
+    }
+  }catch(e){}
+}
+
+// ── Poll account ─────────────────────────────────────
+async function pollAccount(){
+  try{
+    const d = await fetch('/api/account').then(r=>r.json());
+    const bal  = d.balance||d.equity||100;
+    const eq   = d.equity||bal;
+    const pnl  = d.daily_pnl||0;
+    const surv = Math.min(100,Math.max(0,(eq/100)*100));
+
+    $('balance').textContent = '$'+bal.toFixed(2);
+    $('equity-line').textContent = `Equity: $${eq.toFixed(2)} | Daily: $${pnl>=0?'+':''}${pnl.toFixed(2)}`;
+    $('survival-fill').style.width = surv+'%';
+    $('survival-fill').style.background = surv>70?'var(--green)':surv>40?'var(--gold)':'var(--red)';
+    $('survival-pct').textContent = surv.toFixed(1)+'%';
+    $('mode-badge').textContent = (d.mode||'LIVE').toUpperCase();
+    $('daily-pnl').textContent = '$'+(pnl>=0?'+':'')+pnl.toFixed(2);
+    $('daily-pnl').className = 'stat-val '+(pnl>=0?'bull':'bear');
+
+    // Survival mode from survival endpoint
+    try{
+      const s = await fetch('/api/survival').then(r=>r.json());
+      $('survival-mode').textContent = s.mode||s.status||'--';
+      $('idle-hours').textContent = (s.idle_hours||0).toFixed(1)+'h idle';
+      $('daily-target').textContent = s.daily_target!=null ? '$'+parseFloat(s.daily_target).toFixed(2) : '--';
+    }catch(e){}
+  }catch(e){}
+}
+
+// ── Poll market data ──────────────────────────────────
+async function pollMarket(){
+  try{
+    const d = await fetch('/api/market').then(r=>r.json());
+    if(!d||d.error) return;
+
+    // H4 indicators
+    $('h4-trend').textContent = d.bull_trend?'BULLISH':d.bear_trend?'BEARISH':'SIDEWAYS';
+    $('h4-trend').className = 'ind-val '+(d.bull_trend?'bull':d.bear_trend?'bear':'neutral');
+    $('h4-rsi').textContent = d.rsi||'--';
+    $('h4-adx').textContent = d.adx!=null?parseFloat(d.adx).toFixed(1):'--';
+    const macdDir = d.macd!=null&&d.macd_signal!=null ? (d.macd>d.macd_signal?'BULL':'BEAR') : '--';
+    $('h4-macd').textContent = macdDir;
+    $('h4-macd').className = 'ind-val '+(macdDir==='BULL'?'bull':macdDir==='BEAR'?'bear':'neutral');
+    $('h4-e21').textContent = d.ema21?'$'+d.ema21.toFixed(2):'--';
+    $('h4-e50').textContent = d.ema50?'$'+d.ema50.toFixed(2):'--';
+    $('h4-atr').textContent = d.atr!=null?parseFloat(d.atr).toFixed(2):'--';
+    $('h4-mom').textContent = d.volume_ratio>1.2?'UP':d.volume_ratio<0.7?'DOWN':'FLAT';
+
+    // M5 (same data source, finer indicators)
+    $('m5-rsi').textContent = d.rsi!=null?parseFloat(d.rsi).toFixed(1):'--';
+    $('m5-stoch').textContent = d.stoch!=null?parseFloat(d.stoch).toFixed(1):'--';
+    $('m5-macd').textContent = macdDir;
+    $('m5-macd').className = 'ind-val '+(macdDir==='BULL'?'bull':macdDir==='BEAR'?'bear':'neutral');
+    $('m5-adx').textContent = d.adx!=null?parseFloat(d.adx).toFixed(1):'--';
+
+    // Key levels — now populated from backend
+    $('swing-high').textContent = d.swing_high?'$'+d.swing_high.toLocaleString('en',{minimumFractionDigits:2}):'--';
+    $('swing-low').textContent  = d.swing_low ?'$'+d.swing_low.toLocaleString('en',{minimumFractionDigits:2}):'--';
+    $('fib618').textContent     = d.fib618    ?'$'+d.fib618.toLocaleString('en',{minimumFractionDigits:2}):'--';
+    $('fib50').textContent      = d.fib50     ?'$'+d.fib50.toLocaleString('en',{minimumFractionDigits:2}):'--';
+    $('fib382').textContent     = d.fib382    ?'$'+d.fib382.toLocaleString('en',{minimumFractionDigits:2}):'--';
+    $('vwap').textContent       = d.vwap      ?'$'+d.vwap.toLocaleString('en',{minimumFractionDigits:2}):'--';
+
+    // Price change vs open
+    if(d.price&&d.open){
+      const chg = d.price - d.open;
+      const chgPct = (chg/d.open*100).toFixed(2);
+      $('hdr-change').textContent = (chg>=0?'+':'')+chgPct+'%';
+      $('hdr-change').className = 'hdr-change '+(chg>=0?'up':'dn');
+    }
+
+    // Session
+    const now = new Date();
+    const m = (now.getUTCHours()+5)*60+(now.getUTCMinutes()+30);
+    const sess = m>=810&&m<1110?'LONDON':m>=1110&&m<1290?'LONDON_NY':m>=1290&&m<1380?'NEW_YORK':'ASIAN';
+    $('session').textContent = sess;
+    $('hdr-session').textContent = sess+' SESSION';
+  }catch(e){}
+}
+
+// ── Poll positions ────────────────────────────────────
+async function pollPositions(){
+  try{
+    const ps = await fetch('/api/positions').then(r=>r.json());
+    $('open-trades').textContent = (ps.length||0)+'/2';
+    const el = $('positions-list');
+    if(!ps||ps.length===0){
+      el.innerHTML = '<div style="color:var(--dim);padding:12px;text-align:center">No open positions</div>';
+      return;
+    }
+    el.innerHTML = ps.map(p=>{
+      const pnl = p.pnl||0;
+      const cls = p.direction==='BUY'?'pos':'pos sell';
+      return `<div class="${cls}">
+        <div class="pos-head">
+          <span class="pos-dir ${p.direction==='BUY'?'bull':'bear'}">${p.direction}</span>
+          <span class="pos-pnl ${pnl>=0?'bull':'bear'}">${pnl>=0?'+':''}$${pnl.toFixed(2)}</span>
+        </div>
+        <div class="pos-detail">
+          <span>Entry: $${p.entry}</span>
+          <span>SL: $${p.stop_loss}</span>
+          <span>TP: $${p.take_profit}</span>
+        </div>
+      </div>`;
+    }).join('');
+  }catch(e){}
+}
+
+// ── Poll brain thoughts (live feed) ──────────────────
+let lastLog = '';
+async function pollLogs(){
+  try{
+    const d = await fetch('/api/logs?limit=30').then(r=>r.json());
+    const logs = d.logs||[];
+    if(!logs.length) return;
+
+    const feed = $('feed');
+    const key = logs[0].time+logs[0].msg;
+    if(key === lastLog) return;
+    lastLog = key;
+
+    feed.innerHTML = logs.map(l=>{
+      const cls = l.level==='success'?'trade':l.level==='error'?'error':
+                  l.level==='warn'?'warn':l.msg.includes('Brain')||l.msg.includes('🧠')?'brain':'';
+      return `<div class="log ${cls}">
+        <span class="log-time">${l.time}</span>${l.msg.substring(0,100)}
+      </div>`;
+    }).join('');
+  }catch(e){}
+}
+
+// ── Poll strategies ───────────────────────────────────
+async function pollStrategies(){
+  try{
+    const d = await fetch('/api/strategies').then(r=>r.json());
+    const strats = d.strategies||{};
+    const best = d.best_strategy||'';
+    const el = $('strategies-list');
+    if(!Object.keys(strats).length){
+      el.innerHTML='<div style="color:var(--dim)">Backtesting in progress...</div>';
+    } else {
+      const sorted = Object.entries(strats).sort((a,b)=>
+        (b[1].win_rate||0)-(a[1].win_rate||0));
+      el.innerHTML = sorted.map(([id,s])=>{
+        const wr = (s.win_rate_pct||0);
+        const isBest = id===best;
+        const usable = s.usable;
+        const aiTag  = s.ai_generated ? ' <span style="color:var(--gold);font-size:9px">[AI]</span>' : '';
+        return `<div class="strat" style="${isBest?'border:1px solid var(--gold)':''}">
+          <div class="strat-head">
+            <span class="strat-name">${isBest?'⭐ ':usable?'✅ ':'❌ '}${s.name||id}${aiTag}</span>
+            <span class="${usable?'bull':'bear'}">${wr.toFixed(0)}% WR</span>
+          </div>
+          <div style="font-size:10px;color:var(--dim);margin-top:3px">${s.trades||0} trades tested${s.ai_generated?' · AI-generated':''}</div>
+          <div class="wr-bar"><div class="wr-fill" style="width:${Math.min(wr,100)}%;background:${usable?'var(--green)':'var(--red)'}"></div></div>
+        </div>`;
+      }).join('');
+    }
+
+    // ── AI Search panel ───────────────────────────────
+    const ai = d.ai_search||{};
+    const panel = $('ai-search-panel');
+    if(ai.status && ai.status!=='idle'){
+      panel.style.display='';
+      const searching = (ai.status||'').includes('searching');
+      $('ai-status').textContent   = ai.status||'--';
+      $('ai-status').style.color   = searching ? 'var(--gold)' : 'var(--green)';
+      $('ai-attempts').textContent = `${ai.iterations||0} / 30`;
+      $('ai-best-wr').textContent  = ai.best_wr ? `${ai.best_wr.toFixed(1)}%` : '--';
+      $('ai-best-name').textContent= ai.best_name||'--';
+      $('ai-target').textContent   = `${(ai.target_wr||80).toFixed(0)}% WR`;
+      const pct = ai.best_wr ? Math.min((ai.best_wr/(ai.target_wr||80))*100, 100) : 0;
+      $('ai-progress-bar').style.width = pct+'%';
+      $('ai-progress-bar').style.background = pct>=100 ? 'var(--green)' : 'var(--gold)';
+    } else {
+      panel.style.display='none';
+    }
+  }catch(e){}
+}
+
+// ── Poll memory ───────────────────────────────────────
+async function pollMemory(){
+  try{
+    const d = await fetch('/api/nexus/memory').then(r=>r.json());
+    const stats = d.stats||{};
+    $('mem-news').textContent = stats.news_reports||0;
+    $('mem-tech').textContent = stats.tech_reports||0;
+    $('mem-wins').textContent = stats.win_patterns||0;
+    $('mem-losses').textContent = stats.loss_patterns||0;
+    $('mem-decisions').textContent = stats.brain_decisions||0;
+
+    // Trade stats — use real-time closed trades endpoint first, fallback to memory
+    try{
+      const ct = await fetch('/api/trades/closed').then(r=>r.json());
+      const total = ct.total||0;
+      // Use nexus memory stats if higher (covers older sessions too)
+      const memTotal = stats.closed_trades||0;
+      const useMemory = memTotal > total;
+      $('stat-total').textContent = useMemory ? memTotal : total;
+      $('stat-wins').textContent  = useMemory ? (stats.wins||0) : (ct.wins||0);
+      $('stat-losses').textContent= useMemory ? (stats.losses||0) : (ct.losses||0);
+      $('stat-wr').textContent    = ((useMemory?(stats.win_rate||0):(ct.win_rate||0))).toFixed(1)+'%';
+      const pnl = useMemory ? (stats.total_pnl||0) : (ct.total_pnl||0);
+      $('stat-pnl').textContent   = (pnl>=0?'$':'-$')+(Math.abs(pnl)).toFixed(2);
+      $('stat-pnl').className = 'stat-val '+(pnl>=0?'bull':'bear');
+    }catch(e2){
+      $('stat-total').textContent = stats.closed_trades||0;
+      $('stat-wins').textContent = stats.wins||0;
+      $('stat-losses').textContent = stats.losses||0;
+      $('stat-wr').textContent = (stats.win_rate||0).toFixed(1)+'%';
+      $('stat-pnl').textContent = '$'+(stats.total_pnl||0).toFixed(2);
+      $('stat-pnl').className = 'stat-val '+(stats.total_pnl>=0?'bull':'bear');
+    }
+
+    // Session stats
+    const ss = d.session_stats||{};
+    $('session-stats').innerHTML = Object.entries(ss).map(([sess,data])=>{
+      const wr = data.trades>0?(data.wins/data.trades*100).toFixed(0):'0';
+      return `<div class="stat"><span class="stat-label">${sess}</span>
+      <span class="stat-val">${data.wins}/${data.trades} (${wr}%)</span></div>`;
+    }).join('');
+
+    // Win patterns
+    const wp = d.win_patterns||[];
+    $('win-patterns').innerHTML = wp.slice(-3).map(p=>
+      `<div style="margin-bottom:6px;padding:5px;background:rgba(0,230,118,.05);border-radius:3px">
+        ✅ ${p.direction} ${p.session} RSI:${p.rsi?.toFixed(0)||'?'} → +$${(p.pnl||0).toFixed(2)}
+      </div>`
+    ).join('') || '<div>No wins yet</div>';
+  }catch(e){}
+}
+
+// ── Poll AI status ────────────────────────────────────
+async function pollAI(){
+  try{
+    const d = await fetch('/api/ai/status').then(r=>r.json());
+    $('ai-claude').textContent = d.claude?'✅ Connected':'❌ No key';
+    $('ai-claude').className = 'stat-val '+(d.claude?'bull':'bear');
+    $('ai-gemma').textContent = d.google?'✅ Connected':'❌ No key';
+    $('ai-gemma').className = 'stat-val '+(d.google?'bull':'bear');
+    $('ai-mode').textContent = d.active||'--';
+  }catch(e){}
+}
+
+// ── Poll agent status (brain decision) ────────────────
+async function pollAgent(){
+  try{
+    const d = await fetch('/api/agent/status').then(r=>r.json());
+    const dec = d.decision||'WAIT';
+    const badge = $('decision-badge');
+    badge.textContent = dec;
+    badge.className = 'decision '+(dec==='BUY'?'dec-buy':dec==='SELL'?'dec-sell':'dec-wait');
+
+    // Confidence
+    const conf = d.confidence||0;
+    $('confidence').textContent = conf+'%';
+    $('confidence').className = 'stat-val '+(conf>=70?'bull':conf>=50?'neutral':'bear');
+
+    // Quality
+    const q = d.quality||'--';
+    $('quality').textContent = q;
+    $('quality').className = 'stat-val '+(q==='A+'||q==='A'?'bull':q==='B'?'neutral':'bear');
+
+    // H4 bias / session
+    $('h4-bias').textContent = d.h1_bias||'--';
+
+    // Reason shown below badge
+    if(d.reason){
+      $('decision-reason').textContent = d.reason.substring(0,80);
+    }
+  }catch(e){}
+}
+
+// ── Poll news ─────────────────────────────────────────
+async function pollNews(){
+  try{
+    const d = await fetch('/api/news/signal').then(r=>r.json());
+    const sent = d.sentiment||'NEUTRAL';
+    $('news-sentiment').textContent = sent;
+    $('news-sentiment').className = 'stat-val '+(sent==='BULLISH'?'bull':sent==='BEARISH'?'bear':'neutral');
+    $('news-headlines').textContent = d.driver||'No headlines';
+  }catch(e){}
+}
+
+// ── Run all polls ─────────────────────────────────────
+async function pollAll(){
+  await Promise.all([
+    pollPrice(), pollAccount(), pollPositions(), pollLogs(), pollAgent(), pollNews()
+  ]);
+}
+
+async function pollSlow(){
+  await Promise.all([pollMarket(), pollStrategies(), pollMemory(), pollAI()]);
+}
+
+// Start
+pollAll();
+pollSlow();
+setInterval(pollAll, 5000);
+setInterval(pollSlow, 30000);
+</script>
+</body>
+</html>

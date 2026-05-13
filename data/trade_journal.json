@@ -1,0 +1,114 @@
+{
+  "created": "2026-05-12T11:34:28.610045",
+  "trades": [
+    {
+      "id": "PAPER-211742FB",
+      "entry_time": "2026-05-12T11:59:34.795390",
+      "close_time": "2026-05-12T12:00:28.134964",
+      "result": "loss",
+      "pnl": -5.84,
+      "direction": "BUY",
+      "entry_price": 4712.8,
+      "stop_loss": 4706.96,
+      "take_profit": 4730.32,
+      "fib_level": 4737.17,
+      "score": 5,
+      "quality": "B",
+      "regime": "TRENDING_DOWN",
+      "rsi7": 22.6,
+      "atr": 5.8404,
+      "h1_bias": "UP",
+      "confidence": 75
+    },
+    {
+      "id": "PAPER-7EBB209D",
+      "entry_time": "2026-05-12T12:14:32.844524",
+      "close_time": "2026-05-12T12:15:28.136263",
+      "result": "loss",
+      "pnl": -6.05,
+      "direction": "BUY",
+      "entry_price": 4711.2,
+      "stop_loss": 4705.15,
+      "take_profit": 4729.36,
+      "fib_level": 4733.65,
+      "score": 5,
+      "quality": "B",
+      "regime": "TRENDING_DOWN",
+      "rsi7": 38.3,
+      "atr": 6.0526,
+      "h1_bias": "UP",
+      "confidence": 75
+    },
+    {
+      "id": "PAPER-B86F9F25",
+      "entry_time": "2026-05-12T18:22:57.898763",
+      "close_time": "2026-05-12T18:28:19.984734",
+      "result": "loss",
+      "pnl": -6.28,
+      "direction": "BUY",
+      "entry_price": 4713.1,
+      "stop_loss": 4706.82,
+      "take_profit": 4731.93,
+      "fib_level": 4714.05,
+      "score": 5,
+      "quality": "B",
+      "regime": "TRENDING_UP",
+      "rsi7": 58.3,
+      "atr": 6.2767,
+      "h1_bias": "UP",
+      "confidence": 75
+    },
+    {
+      "id": "PAPER-64D5022E",
+      "entry_time": "2026-05-12T23:29:58.643565",
+      "close_time": null,
+      "result": null,
+      "pnl": 0.0,
+      "direction": "SELL",
+      "entry_price": 4684.9,
+      "stop_loss": 4689.3,
+      "take_profit": 4667.29,
+      "fib_level": 4682.5,
+      "score": 7,
+      "quality": "A+",
+      "regime": "RANGING",
+      "rsi7": 56.6,
+      "atr": 4.8908,
+      "h1_bias": "DN",
+      "confidence": 83
+    }
+  ],
+  "level_memory": {
+    "4735.0": {
+      "tests": 2,
+      "wins": 0,
+      "losses": 2,
+      "last_result": "loss",
+      "last_time": "2026-05-12T12:15:28.136271",
+      "price_zone": "4735.0"
+    },
+    "4715.0": {
+      "tests": 1,
+      "wins": 0,
+      "losses": 1,
+      "last_result": "loss",
+      "last_time": "2026-05-12T18:28:19.984753",
+      "price_zone": "4715.0"
+    }
+  },
+  "setup_stats": {
+    "B_TRENDING_DOWN_score5": {
+      "trades": 2,
+      "wins": 0,
+      "losses": 2
+    },
+    "B_TRENDING_UP_score5": {
+      "trades": 1,
+      "wins": 0,
+      "losses": 1
+    }
+  },
+  "total_trades": 4,
+  "total_wins": 1,
+  "total_losses": 4
+}

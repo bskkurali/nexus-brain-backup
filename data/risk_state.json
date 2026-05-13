@@ -1,0 +1,9 @@
+{
+  "equity": 93.88,
+  "daily_pnl": -6.28,
+  "weekly_pnl": -6.28,
+  "trades_today": 1,
+  "consecutive_losses": 1,
+  "is_paused": true,
+  "pause_reason": "Daily loss limit hit: 6.7%"
+}

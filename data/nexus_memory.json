@@ -1,0 +1,452 @@
+{
+  "created": "2026-05-12T11:34:28.607365",
+  "updated": "2026-05-12T23:29:58.638806",
+  "news_reports": [],
+  "technical_reports": [
+    {
+      "time": "2026-05-12T12:49:33.309431",
+      "price": 4702.4,
+      "rsi_m5": 45.9,
+      "rsi_h1": 43.3,
+      "adx_m5": 32.8,
+      "macd_m5": "BEAR",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T12:54:30.741385",
+      "price": 4704.0,
+      "rsi_m5": 49.9,
+      "rsi_h1": 43.3,
+      "adx_m5": 29.2,
+      "macd_m5": "BULL",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T12:59:31.005529",
+      "price": 4706.0,
+      "rsi_m5": 54.0,
+      "rsi_h1": 43.9,
+      "adx_m5": 23.7,
+      "macd_m5": "BULL",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T13:14:03.959694",
+      "price": 4706.3,
+      "rsi_m5": 53.5,
+      "rsi_h1": 44.0,
+      "adx_m5": 15.4,
+      "macd_m5": "BULL",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T13:19:02.416439",
+      "price": 80844.9,
+      "rsi_m5": 28.6,
+      "rsi_h1": 40.6,
+      "adx_m5": 26.3,
+      "macd_m5": "BEAR",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T13:29:01.927851",
+      "price": 4707.1,
+      "rsi_m5": 51.0,
+      "rsi_h1": 44.3,
+      "adx_m5": 10.7,
+      "macd_m5": "BULL",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T13:49:04.814134",
+      "price": 4710.1,
+      "rsi_m5": 50.9,
+      "rsi_h1": 45.5,
+      "adx_m5": 14.7,
+      "macd_m5": "BULL",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T13:59:04.219184",
+      "price": 4708.5,
+      "rsi_m5": 49.1,
+      "rsi_h1": 44.9,
+      "adx_m5": 14.8,
+      "macd_m5": "BEAR",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T14:04:02.153476",
+      "price": 4711.4,
+      "rsi_m5": 56.5,
+      "rsi_h1": 45.9,
+      "adx_m5": 13.5,
+      "macd_m5": "BEAR",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T14:04:02.392568",
+      "price": 80848.02,
+      "rsi_m5": 49.9,
+      "rsi_h1": 40.8,
+      "adx_m5": 27.1,
+      "macd_m5": "BULL",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T14:05:45.360836",
+      "price": 4710.7,
+      "rsi_m5": 54.0,
+      "rsi_h1": 45.7,
+      "adx_m5": 12.3,
+      "macd_m5": "BEAR",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T17:01:43.054304",
+      "price": 4705.2,
+      "rsi_m5": 59.2,
+      "rsi_h1": 44.3,
+      "adx_m5": 21.1,
+      "macd_m5": "BULL",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T17:21:43.624616",
+      "price": 4711.4,
+      "rsi_m5": 63.3,
+      "rsi_h1": 46.8,
+      "adx_m5": 25.9,
+      "macd_m5": "BULL",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T17:31:43.592169",
+      "price": 4715.0,
+      "rsi_m5": 64.9,
+      "rsi_h1": 48.1,
+      "adx_m5": 31.2,
+      "macd_m5": "BULL",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T17:36:44.090243",
+      "price": 4716.2,
+      "rsi_m5": 66.4,
+      "rsi_h1": 48.5,
+      "adx_m5": 30.6,
+      "macd_m5": "BULL",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T18:26:43.600823",
+      "price": 4718.7,
+      "rsi_m5": 64.4,
+      "rsi_h1": 49.4,
+      "adx_m5": 22.6,
+      "macd_m5": "BULL",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T18:31:42.926519",
+      "price": 4717.9,
+      "rsi_m5": 62.8,
+      "rsi_h1": 49.2,
+      "adx_m5": 24.5,
+      "macd_m5": "BULL",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    }
+  ],
+  "risk_reports": [],
+  "sentiment_reports": [],
+  "trade_journal": [
+    {
+      "ticket": "PAPER-B86F9F25",
+      "time": "2026-05-12T18:22:57.868806",
+      "direction": "BUY",
+      "entry": 4713.1,
+      "sl": 4706.82,
+      "tp": 4731.93,
+      "session": "LONDON",
+      "rsi_entry": 50,
+      "reason": "AI signal",
+      "confidence": 75,
+      "pnl": -6.28,
+      "won": false,
+      "closed_at": "2026-05-12T18:28:19.947261"
+    },
+    {
+      "ticket": "PAPER-64D5022E",
+      "time": "2026-05-12T23:29:58.638801",
+      "direction": "SELL",
+      "entry": 4684.9,
+      "sl": 4689.3,
+      "tp": 4667.29,
+      "session": "ASIAN",
+      "rsi_entry": 50,
+      "reason": "AI signal",
+      "confidence": 83,
+      "pnl": null,
+      "won": null
+    }
+  ],
+  "win_patterns": [],
+  "loss_patterns": [
+    {
+      "direction": "BUY",
+      "session": "LONDON",
+      "rsi": 50,
+      "confidence": 75,
+      "reason": "AI signal",
+      "pnl": -6.28
+    }
+  ],
+  "session_stats": {
+    "LONDON": {
+      "trades": 1,
+      "wins": 0
+    },
+    "LONDON_NY_OVERLAP": {
+      "trades": 0,
+      "wins": 0
+    },
+    "NEW_YORK": {
+      "trades": 0,
+      "wins": 0
+    },
+    "ASIAN": {
+      "trades": 0,
+      "wins": 0
+    }
+  },
+  "rsi_stats": {
+    "50-60": {
+      "trades": 1,
+      "wins": 0
+    }
+  },
+  "key_levels": [],
+  "brain_decisions": [
+    {
+      "time": "2026-05-12T12:49:33.309709",
+      "decision": "WAIT",
+      "confidence": 0,
+      "reason": "\"Could not resolve authentication method. Expected one of ap",
+      "price": 4702.4,
+      "rsi": 45.9,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T12:54:30.741770",
+      "decision": "WAIT",
+      "confidence": 0,
+      "reason": "\"Could not resolve authentication method. Expected one of ap",
+      "price": 4704.0,
+      "rsi": 49.9,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T12:59:31.007100",
+      "decision": "WAIT",
+      "confidence": 0,
+      "reason": "\"Could not resolve authentication method. Expected one of ap",
+      "price": 4706.0,
+      "rsi": 54.0,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T13:14:03.960945",
+      "decision": "WAIT",
+      "confidence": 0,
+      "reason": "Score=4/8, below threshold",
+      "price": 4706.3,
+      "rsi": 53.5,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T13:19:02.416976",
+      "decision": "WAIT",
+      "confidence": 20,
+      "reason": "Score=4/8, below threshold",
+      "price": 80844.9,
+      "rsi": 28.6,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T13:29:01.930522",
+      "decision": "WAIT",
+      "confidence": 20,
+      "reason": "Score=3/8, below threshold",
+      "price": 4707.1,
+      "rsi": 51.0,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T13:49:04.815641",
+      "decision": "WAIT",
+      "confidence": 70,
+      "reason": "Score=3/8 in H1 uptrend | active_session atr_normal bull_candle",
+      "price": 4710.1,
+      "rsi": 50.9,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T13:59:04.220925",
+      "decision": "WAIT",
+      "confidence": 30,
+      "reason": "H1 MACD BEAR_CROSS, M1 EMA stack FULL BEAR, RSI7 not extreme (50.1), ADX weak. Not a high-conviction",
+      "price": 4708.5,
+      "rsi": 49.1,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T14:04:02.154472",
+      "decision": "WAIT",
+      "confidence": 75,
+      "reason": "Score=4/8 in H1 uptrend | h4_trending active_session atr_normal bull_candle",
+      "price": 4711.4,
+      "rsi": 56.5,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T14:04:02.394524",
+      "decision": "WAIT",
+      "confidence": 75,
+      "reason": "Score=4/8 in H1 uptrend | h4_trending stoch_bounce active_session atr_normal",
+      "price": 80848.02,
+      "rsi": 49.9,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T14:05:45.361723",
+      "decision": "WAIT",
+      "confidence": 75,
+      "reason": "Score=4/8 in H1 uptrend | h4_trending active_session atr_normal bull_candle",
+      "price": 4710.7,
+      "rsi": 54.0,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T17:01:43.056354",
+      "decision": "WAIT",
+      "confidence": 75,
+      "reason": "Score=4/8 in H1 uptrend | h4_trending active_session atr_normal bull_candle",
+      "price": 4705.2,
+      "rsi": 59.2,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T17:21:43.628430",
+      "decision": "WAIT",
+      "confidence": 75,
+      "reason": "Score=4/8 in H1 uptrend | h4_trending active_session atr_normal bull_candle",
+      "price": 4711.4,
+      "rsi": 63.3,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T17:31:43.594572",
+      "decision": "WAIT",
+      "confidence": 75,
+      "reason": "Score=4/8 in H1 uptrend | h4_trending active_session atr_normal bull_candle",
+      "price": 4715.0,
+      "rsi": 64.9,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T17:36:44.096780",
+      "decision": "WAIT",
+      "confidence": 80,
+      "reason": "Score=5/8 in H1 uptrend | full_ema_stack h4_trending active_session atr_normal bull_candle",
+      "price": 4716.2,
+      "rsi": 66.4,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T18:26:43.602414",
+      "decision": "WAIT",
+      "confidence": 80,
+      "reason": "Score=5/8 in H1 uptrend | full_ema_stack h4_trending active_session atr_normal bull_candle",
+      "price": 4718.7,
+      "rsi": 64.4,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T18:31:42.930469",
+      "decision": "WAIT",
+      "confidence": 80,
+      "reason": "Score=5/8 in H1 uptrend | full_ema_stack h4_trending active_session atr_normal bull_candle",
+      "price": 4717.9,
+      "rsi": 62.8,
+      "session": "",
+      "outcome": null
+    }
+  ]
+}
