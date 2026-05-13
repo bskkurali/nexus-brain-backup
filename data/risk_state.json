@@ -1,0 +1,9 @@
+{
+  "equity": 77.19,
+  "daily_pnl": 0.0,
+  "weekly_pnl": 0.0,
+  "trades_today": 0,
+  "consecutive_losses": 0,
+  "is_paused": false,
+  "pause_reason": ""
+}

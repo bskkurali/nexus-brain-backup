@@ -1,0 +1,24 @@
+{
+  "missing_can_trade": {
+    "issue": {
+      "id": "missing_can_trade",
+      "severity": "HIGH",
+      "description": "risk_engine.py missing can_trade \u2014 trades being blocked",
+      "detected_at": "2026-05-11T23:15:52.778784"
+    },
+    "fix": "risk_engine.py missing can_trade function",
+    "requested_at": "2026-05-11T23:15:52.779272",
+    "status": "pending"
+  },
+  "agent_count_too_high": {
+    "issue": {
+      "id": "agent_count_too_high",
+      "severity": "MEDIUM",
+      "description": "Too many agents (7) causing 429 rate limits",
+      "detected_at": "2026-05-13T05:14:57.211228"
+    },
+    "fix": "Too many agents consuming API quota",
+    "requested_at": "2026-05-13T05:14:57.229139",
+    "status": "pending"
+  }
+}

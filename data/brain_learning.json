@@ -1,0 +1,88 @@
+{
+  "condition_stats": {
+    "rsi7_extreme": {
+      "wins": 0,
+      "losses": 0
+    },
+    "full_ema_stack": {
+      "wins": 0,
+      "losses": 0
+    },
+    "macd_cross": {
+      "wins": 0,
+      "losses": 0
+    },
+    "h4_trending": {
+      "wins": 0,
+      "losses": 0
+    },
+    "stoch_bounce": {
+      "wins": 0,
+      "losses": 0
+    },
+    "active_session": {
+      "wins": 0,
+      "losses": 0
+    },
+    "atr_normal": {
+      "wins": 0,
+      "losses": 0
+    },
+    "bull_candle": {
+      "wins": 0,
+      "losses": 0
+    }
+  },
+  "symbol_stats": {
+    "XAUUSD": {
+      "wins": 6,
+      "losses": 3
+    },
+    "BTC": {
+      "wins": 0,
+      "losses": 0
+    }
+  },
+  "session_stats": {
+    "london": {
+      "wins": 0,
+      "losses": 0
+    },
+    "ny": {
+      "wins": 0,
+      "losses": 0
+    },
+    "overlap": {
+      "wins": 0,
+      "losses": 0
+    }
+  },
+  "hour_stats": {
+    "6": {
+      "wins": 1,
+      "losses": 2
+    },
+    "8": {
+      "wins": 1,
+      "losses": 0
+    },
+    "16": {
+      "wins": 3,
+      "losses": 0
+    },
+    "17": {
+      "wins": 1,
+      "losses": 0
+    },
+    "19": {
+      "wins": 0,
+      "losses": 1
+    }
+  },
+  "day_stats": {},
+  "total_trades": 9,
+  "last_updated": "2026-05-12",
+  "best_conditions": [],
+  "worst_conditions": [],
+  "weekly_wr": 66.7
+}

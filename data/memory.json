@@ -1,0 +1,170 @@
+{
+  "created": "2026-05-12T11:34:28.616930",
+  "last_updated": "2026-05-12T19:22:59.508249",
+  "version": 2,
+  "research_cache": {},
+  "news_archive": [],
+  "sniper_log": [],
+  "team_decisions": [],
+  "price_levels": {
+    "strong_support": [],
+    "strong_resistance": [],
+    "weekly_high": null,
+    "weekly_low": null,
+    "daily_high": null,
+    "daily_low": null
+  },
+  "strategy_stats": {
+    "LONDON": {
+      "trades": 1,
+      "wins": 1,
+      "strategies": {
+        "sniper_pro": {
+          "trades": 1,
+          "wins": 1
+        }
+      }
+    },
+    "LONDON_NY_OVERLAP": {
+      "trades": 0,
+      "wins": 0,
+      "strategies": {}
+    },
+    "NEW_YORK": {
+      "trades": 4,
+      "wins": 4,
+      "strategies": {
+        "sniper_pro": {
+          "trades": 4,
+          "wins": 4
+        }
+      }
+    },
+    "ASIAN": {
+      "trades": 4,
+      "wins": 1,
+      "strategies": {
+        "sniper_pro": {
+          "trades": 4,
+          "wins": 1
+        }
+      }
+    }
+  },
+  "agent_performance": {
+    "sniper_commander": {
+      "signals": 0,
+      "correct": 0,
+      "grades": {}
+    },
+    "news_agent": {
+      "calls": 0,
+      "accurate": 0
+    },
+    "technical_agent": {
+      "calls": 0,
+      "accurate": 0
+    },
+    "entry_agent": {
+      "calls": 0,
+      "good_entries": 0
+    },
+    "guard_agent": {
+      "calls": 0,
+      "correct_blocks": 0
+    }
+  },
+  "market_patterns": [],
+  "audit_trail": [
+    {
+      "timestamp": "2026-05-12T11:34:28.616945",
+      "event": "trade_closed",
+      "agent": "position_monitor",
+      "data": {
+        "ticket": "PAPER-8DCAA211",
+        "pnl": 28.28,
+        "reason": "TP_HIT"
+      }
+    },
+    {
+      "timestamp": "2026-05-12T12:00:28.138942",
+      "event": "trade_closed",
+      "agent": "position_monitor",
+      "data": {
+        "ticket": "PAPER-211742FB",
+        "pnl": -5.84,
+        "reason": "SL_HIT"
+      }
+    },
+    {
+      "timestamp": "2026-05-12T12:15:28.137660",
+      "event": "trade_closed",
+      "agent": "position_monitor",
+      "data": {
+        "ticket": "PAPER-7EBB209D",
+        "pnl": -6.05,
+        "reason": "SL_HIT"
+      }
+    },
+    {
+      "timestamp": "2026-05-12T13:53:58.148358",
+      "event": "trade_closed",
+      "agent": "position_monitor",
+      "data": {
+        "ticket": "PAPER-E04A85A7",
+        "pnl": 10.6,
+        "reason": "TRAIL_HIT"
+      }
+    },
+    {
+      "timestamp": "2026-05-12T16:16:13.886670",
+      "event": "trade_closed",
+      "agent": "position_monitor",
+      "data": {
+        "ticket": "PAPER-49A17DC2",
+        "pnl": 0.1,
+        "reason": "SL_HIT"
+      }
+    },
+    {
+      "timestamp": "2026-05-12T16:19:13.383334",
+      "event": "trade_closed",
+      "agent": "position_monitor",
+      "data": {
+        "ticket": "PAPER-6A2D83A7",
+        "pnl": 0.88,
+        "reason": "TRAIL_HIT"
+      }
+    },
+    {
+      "timestamp": "2026-05-12T16:59:12.565202",
+      "event": "trade_closed",
+      "agent": "position_monitor",
+      "data": {
+        "ticket": "PAPER-181F62CA",
+        "pnl": 4.46,
+        "reason": "TRAIL_HIT"
+      }
+    },
+    {
+      "timestamp": "2026-05-12T17:07:14.421915",
+      "event": "trade_closed",
+      "agent": "position_monitor",
+      "data": {
+        "ticket": "PAPER-3684859A",
+        "pnl": 4.37,
+        "reason": "TRAIL_HIT"
+      }
+    },
+    {
+      "timestamp": "2026-05-12T19:22:59.493847",
+      "event": "trade_closed",
+      "agent": "position_monitor",
+      "data": {
+        "ticket": "",
+        "pnl": -7.14,
+        "reason": "SL_HIT"
+      }
+    }
+  ]
+}

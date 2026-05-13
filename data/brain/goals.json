@@ -1,0 +1,27 @@
+[
+  {
+    "goal": "Grow $100 wallet to $500",
+    "priority": 1,
+    "progress": 0
+  },
+  {
+    "goal": "Achieve 70%+ win rate",
+    "priority": 2,
+    "progress": 40.9
+  },
+  {
+    "goal": "Master London session",
+    "priority": 3,
+    "progress": 0
+  },
+  {
+    "goal": "Never lose more than $5/day",
+    "priority": 4,
+    "progress": 0
+  },
+  {
+    "goal": "Build 10+ strategy patterns",
+    "priority": 5,
+    "progress": 0
+  }
+]

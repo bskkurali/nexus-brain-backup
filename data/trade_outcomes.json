@@ -1,0 +1,101 @@
+[
+  {
+    "date": "2026-05-12",
+    "time": "11:34",
+    "symbol": "XAUUSDm",
+    "direction": "SELL",
+    "outcome": "WIN",
+    "pnl": 28.28,
+    "conditions": {},
+    "session": "ASIAN",
+    "hour": 6
+  },
+  {
+    "date": "2026-05-12",
+    "time": "12:00",
+    "symbol": "XAUUSDm",
+    "direction": "BUY",
+    "outcome": "LOSS",
+    "pnl": -5.84,
+    "conditions": {},
+    "session": "ASIAN",
+    "hour": 6
+  },
+  {
+    "date": "2026-05-12",
+    "time": "12:15",
+    "symbol": "XAUUSDm",
+    "direction": "BUY",
+    "outcome": "LOSS",
+    "pnl": -6.05,
+    "conditions": {},
+    "session": "ASIAN",
+    "hour": 6
+  },
+  {
+    "date": "2026-05-12",
+    "time": "13:53",
+    "symbol": "XAUUSDm",
+    "direction": "SELL",
+    "outcome": "WIN",
+    "pnl": 10.6,
+    "conditions": {},
+    "session": "LONDON",
+    "hour": 8
+  },
+  {
+    "date": "2026-05-12",
+    "time": "16:16",
+    "symbol": "XAUUSDm",
+    "direction": "SELL",
+    "outcome": "WIN",
+    "pnl": 0.1,
+    "conditions": {},
+    "session": "NEW_YORK",
+    "hour": 16
+  },
+  {
+    "date": "2026-05-12",
+    "time": "16:19",
+    "symbol": "XAUUSDm",
+    "direction": "SELL",
+    "outcome": "WIN",
+    "pnl": 0.88,
+    "conditions": {},
+    "session": "NEW_YORK",
+    "hour": 16
+  },
+  {
+    "date": "2026-05-12",
+    "time": "16:59",
+    "symbol": "XAUUSDm",
+    "direction": "SELL",
+    "outcome": "WIN",
+    "pnl": 4.46,
+    "conditions": {},
+    "session": "NEW_YORK",
+    "hour": 16
+  },
+  {
+    "date": "2026-05-12",
+    "time": "17:07",
+    "symbol": "XAUUSDm",
+    "direction": "SELL",
+    "outcome": "WIN",
+    "pnl": 4.37,
+    "conditions": {},
+    "session": "NEW_YORK",
+    "hour": 17
+  },
+  {
+    "date": "2026-05-12",
+    "time": "19:22",
+    "symbol": "XAUUSDm",
+    "direction": "SELL",
+    "outcome": "LOSS",
+    "pnl": -7.14,
+    "conditions": {},
+    "session": "ASIAN",
+    "hour": 19
+  }
+]

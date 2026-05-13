@@ -1,0 +1,711 @@
+{
+  "created": "2026-05-12T11:34:28.607365",
+  "updated": "2026-05-12T19:22:59.430908",
+  "news_reports": [],
+  "technical_reports": [
+    {
+      "time": "2026-05-12T12:49:33.309431",
+      "price": 4702.4,
+      "rsi_m5": 45.9,
+      "rsi_h1": 43.3,
+      "adx_m5": 32.8,
+      "macd_m5": "BEAR",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T12:54:30.741385",
+      "price": 4704.0,
+      "rsi_m5": 49.9,
+      "rsi_h1": 43.3,
+      "adx_m5": 29.2,
+      "macd_m5": "BULL",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T12:59:31.005529",
+      "price": 4706.0,
+      "rsi_m5": 54.0,
+      "rsi_h1": 43.9,
+      "adx_m5": 23.7,
+      "macd_m5": "BULL",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T13:14:03.959694",
+      "price": 4706.3,
+      "rsi_m5": 53.5,
+      "rsi_h1": 44.0,
+      "adx_m5": 15.4,
+      "macd_m5": "BULL",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T13:19:02.416439",
+      "price": 80844.9,
+      "rsi_m5": 28.6,
+      "rsi_h1": 40.6,
+      "adx_m5": 26.3,
+      "macd_m5": "BEAR",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T13:29:01.927851",
+      "price": 4707.1,
+      "rsi_m5": 51.0,
+      "rsi_h1": 44.3,
+      "adx_m5": 10.7,
+      "macd_m5": "BULL",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T13:49:04.814134",
+      "price": 4710.1,
+      "rsi_m5": 50.9,
+      "rsi_h1": 45.5,
+      "adx_m5": 14.7,
+      "macd_m5": "BULL",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T13:59:04.219184",
+      "price": 4708.5,
+      "rsi_m5": 49.1,
+      "rsi_h1": 44.9,
+      "adx_m5": 14.8,
+      "macd_m5": "BEAR",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T14:04:02.153476",
+      "price": 4711.4,
+      "rsi_m5": 56.5,
+      "rsi_h1": 45.9,
+      "adx_m5": 13.5,
+      "macd_m5": "BEAR",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T14:04:02.392568",
+      "price": 80848.02,
+      "rsi_m5": 49.9,
+      "rsi_h1": 40.8,
+      "adx_m5": 27.1,
+      "macd_m5": "BULL",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T14:05:45.360836",
+      "price": 4710.7,
+      "rsi_m5": 54.0,
+      "rsi_h1": 45.7,
+      "adx_m5": 12.3,
+      "macd_m5": "BEAR",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T12:58:26.621634",
+      "price": 4718.8,
+      "rsi_m5": 64.5,
+      "rsi_h1": 49.5,
+      "adx_m5": 22.6,
+      "macd_m5": "BULL",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T13:03:05.004988",
+      "price": 4717.5,
+      "rsi_m5": 62.3,
+      "rsi_h1": 49.0,
+      "adx_m5": 24.5,
+      "macd_m5": "BULL",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T15:20:02.579037",
+      "price": 4677.8,
+      "rsi_m5": 37.8,
+      "rsi_h1": 36.8,
+      "adx_m5": 28.5,
+      "macd_m5": "BEAR",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T15:24:58.700295",
+      "price": 4674.4,
+      "rsi_m5": 33.2,
+      "rsi_h1": 35.8,
+      "adx_m5": 29.7,
+      "macd_m5": "BEAR",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T15:29:59.435655",
+      "price": 4668.6,
+      "rsi_m5": 27.5,
+      "rsi_h1": 34.3,
+      "adx_m5": 35.3,
+      "macd_m5": "BEAR",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T15:35:04.488307",
+      "price": 4649.3,
+      "rsi_m5": 16.4,
+      "rsi_h1": 30.5,
+      "adx_m5": 43.8,
+      "macd_m5": "BEAR",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T15:39:59.218952",
+      "price": 4661.6,
+      "rsi_m5": 40.4,
+      "rsi_h1": 32.9,
+      "adx_m5": 45.6,
+      "macd_m5": "BEAR",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T15:50:00.086524",
+      "price": 4672.2,
+      "rsi_m5": 56.9,
+      "rsi_h1": 35.3,
+      "adx_m5": 27.3,
+      "macd_m5": "BULL",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T16:24:57.961441",
+      "price": 4678.1,
+      "rsi_m5": 59.8,
+      "rsi_h1": 37.9,
+      "adx_m5": 25.1,
+      "macd_m5": "BULL",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T17:15:07.011870",
+      "price": 4682.8,
+      "rsi_m5": 64.0,
+      "rsi_h1": 39.8,
+      "adx_m5": 18.3,
+      "macd_m5": "BULL",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    },
+    {
+      "time": "2026-05-12T17:20:01.493905",
+      "price": 4685.0,
+      "rsi_m5": 65.1,
+      "rsi_h1": 40.8,
+      "adx_m5": 25.5,
+      "macd_m5": "BULL",
+      "trend_h1": "SIDE",
+      "trend_m5": "SIDE",
+      "near_fib": "",
+      "vol_ratio": 0
+    }
+  ],
+  "risk_reports": [],
+  "sentiment_reports": [],
+  "trade_journal": [
+    {
+      "ticket": "PAPER-6A2D83A7",
+      "time": "2026-05-12T15:51:18.389766",
+      "direction": "SELL",
+      "entry": 4675.4,
+      "sl": 4685.42,
+      "tp": 4645.33,
+      "session": "LONDON_NY_OVERLAP",
+      "rsi_entry": 50,
+      "reason": "AI signal",
+      "confidence": 79,
+      "pnl": 0.88,
+      "won": true,
+      "closed_at": "2026-05-12T16:19:13.321852"
+    },
+    {
+      "ticket": "PAPER-49A17DC2",
+      "time": "2026-05-12T16:01:17.044687",
+      "direction": "SELL",
+      "entry": 4673.0,
+      "sl": 4682.33,
+      "tp": 4645.0,
+      "session": "NEW_YORK",
+      "rsi_entry": 50,
+      "reason": "AI signal",
+      "confidence": 79,
+      "pnl": 0.1,
+      "won": true,
+      "closed_at": "2026-05-12T16:16:13.841126"
+    },
+    {
+      "ticket": "PAPER-3684859A",
+      "time": "2026-05-12T16:26:19.484005",
+      "direction": "SELL",
+      "entry": 4678.8,
+      "sl": 4686.83,
+      "tp": 4654.7,
+      "session": "NEW_YORK",
+      "rsi_entry": 50,
+      "reason": "AI signal",
+      "confidence": 79,
+      "pnl": 4.37,
+      "won": true,
+      "closed_at": "2026-05-12T17:07:14.388628"
+    },
+    {
+      "ticket": "PAPER-181F62CA",
+      "time": "2026-05-12T16:31:15.269729",
+      "direction": "SELL",
+      "entry": 4678.7,
+      "sl": 4686.51,
+      "tp": 4655.28,
+      "session": "NEW_YORK",
+      "rsi_entry": 50,
+      "reason": "AI signal",
+      "confidence": 79,
+      "pnl": 4.46,
+      "won": true,
+      "closed_at": "2026-05-12T16:59:12.516708"
+    },
+    {
+      "ticket": "PAPER-C878B0DC",
+      "time": "2026-05-12T17:11:16.398417",
+      "direction": "SELL",
+      "entry": 4679.1,
+      "sl": 4685.32,
+      "tp": 4660.45,
+      "session": "NEW_YORK",
+      "rsi_entry": 50,
+      "reason": "AI signal",
+      "confidence": 75,
+      "pnl": null,
+      "won": null
+    },
+    {
+      "ticket": "PAPER-94E564D8",
+      "time": "2026-05-12T17:21:16.067330",
+      "direction": "SELL",
+      "entry": 4685.8,
+      "sl": 4691.9,
+      "tp": 4667.51,
+      "session": "NEW_YORK",
+      "rsi_entry": 50,
+      "reason": "AI signal",
+      "confidence": 75,
+      "pnl": null,
+      "won": null
+    },
+    {
+      "ticket": "PAPER-7769B35C",
+      "time": "2026-05-12T17:46:47.276666",
+      "direction": "SELL",
+      "entry": 4686.0,
+      "sl": 4691.37,
+      "tp": 4669.9,
+      "session": "ASIAN",
+      "rsi_entry": 50,
+      "reason": "AI signal",
+      "confidence": 75,
+      "pnl": null,
+      "won": null
+    },
+    {
+      "ticket": "PAPER-E2FE0D00",
+      "time": "2026-05-12T17:53:26.614521",
+      "direction": "SELL",
+      "entry": 4684.7,
+      "sl": 4689.16,
+      "tp": 4666.86,
+      "session": "ASIAN",
+      "rsi_entry": 50,
+      "reason": "AI signal",
+      "confidence": 83,
+      "pnl": null,
+      "won": null
+    },
+    {
+      "ticket": "",
+      "time": "2026-05-12T18:47:20.932492",
+      "direction": "SELL",
+      "entry": 4691.298,
+      "sl": 4700.85,
+      "tp": 4683.44,
+      "session": "ASIAN",
+      "rsi_entry": 50,
+      "reason": "AI signal",
+      "confidence": 75,
+      "pnl": -7.14,
+      "won": false,
+      "closed_at": "2026-05-12T19:22:59.430908"
+    },
+    {
+      "ticket": "",
+      "time": "2026-05-12T18:59:15.892777",
+      "direction": "SELL",
+      "entry": 4696.226,
+      "sl": 4703.37,
+      "tp": 4684.7,
+      "session": "ASIAN",
+      "rsi_entry": 50,
+      "reason": "AI signal",
+      "confidence": 90,
+      "pnl": null,
+      "won": null
+    }
+  ],
+  "win_patterns": [
+    {
+      "direction": "SELL",
+      "session": "NEW_YORK",
+      "rsi": 50,
+      "confidence": 79,
+      "reason": "AI signal",
+      "pnl": 0.1
+    },
+    {
+      "direction": "SELL",
+      "session": "LONDON_NY_OVERLAP",
+      "rsi": 50,
+      "confidence": 79,
+      "reason": "AI signal",
+      "pnl": 0.88
+    },
+    {
+      "direction": "SELL",
+      "session": "NEW_YORK",
+      "rsi": 50,
+      "confidence": 79,
+      "reason": "AI signal",
+      "pnl": 4.46
+    },
+    {
+      "direction": "SELL",
+      "session": "NEW_YORK",
+      "rsi": 50,
+      "confidence": 79,
+      "reason": "AI signal",
+      "pnl": 4.37
+    }
+  ],
+  "loss_patterns": [
+    {
+      "direction": "SELL",
+      "session": "ASIAN",
+      "rsi": 50,
+      "confidence": 75,
+      "reason": "AI signal",
+      "pnl": -7.14
+    }
+  ],
+  "session_stats": {
+    "LONDON": {
+      "trades": 0,
+      "wins": 0
+    },
+    "LONDON_NY_OVERLAP": {
+      "trades": 1,
+      "wins": 1
+    },
+    "NEW_YORK": {
+      "trades": 3,
+      "wins": 3
+    },
+    "ASIAN": {
+      "trades": 1,
+      "wins": 0
+    }
+  },
+  "rsi_stats": {
+    "50-60": {
+      "trades": 5,
+      "wins": 4
+    }
+  },
+  "key_levels": [],
+  "brain_decisions": [
+    {
+      "time": "2026-05-12T12:49:33.309709",
+      "decision": "WAIT",
+      "confidence": 0,
+      "reason": "\"Could not resolve authentication method. Expected one of ap",
+      "price": 4702.4,
+      "rsi": 45.9,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T12:54:30.741770",
+      "decision": "WAIT",
+      "confidence": 0,
+      "reason": "\"Could not resolve authentication method. Expected one of ap",
+      "price": 4704.0,
+      "rsi": 49.9,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T12:59:31.007100",
+      "decision": "WAIT",
+      "confidence": 0,
+      "reason": "\"Could not resolve authentication method. Expected one of ap",
+      "price": 4706.0,
+      "rsi": 54.0,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T13:14:03.960945",
+      "decision": "WAIT",
+      "confidence": 0,
+      "reason": "Score=4/8, below threshold",
+      "price": 4706.3,
+      "rsi": 53.5,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T13:19:02.416976",
+      "decision": "WAIT",
+      "confidence": 20,
+      "reason": "Score=4/8, below threshold",
+      "price": 80844.9,
+      "rsi": 28.6,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T13:29:01.930522",
+      "decision": "WAIT",
+      "confidence": 20,
+      "reason": "Score=3/8, below threshold",
+      "price": 4707.1,
+      "rsi": 51.0,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T13:49:04.815641",
+      "decision": "WAIT",
+      "confidence": 70,
+      "reason": "Score=3/8 in H1 uptrend | active_session atr_normal bull_candle",
+      "price": 4710.1,
+      "rsi": 50.9,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T13:59:04.220925",
+      "decision": "WAIT",
+      "confidence": 30,
+      "reason": "H1 MACD BEAR_CROSS, M1 EMA stack FULL BEAR, RSI7 not extreme (50.1), ADX weak. Not a high-conviction",
+      "price": 4708.5,
+      "rsi": 49.1,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T14:04:02.154472",
+      "decision": "WAIT",
+      "confidence": 75,
+      "reason": "Score=4/8 in H1 uptrend | h4_trending active_session atr_normal bull_candle",
+      "price": 4711.4,
+      "rsi": 56.5,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T14:04:02.394524",
+      "decision": "WAIT",
+      "confidence": 75,
+      "reason": "Score=4/8 in H1 uptrend | h4_trending stoch_bounce active_session atr_normal",
+      "price": 80848.02,
+      "rsi": 49.9,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T14:05:45.361723",
+      "decision": "WAIT",
+      "confidence": 75,
+      "reason": "Score=4/8 in H1 uptrend | h4_trending active_session atr_normal bull_candle",
+      "price": 4710.7,
+      "rsi": 54.0,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T12:58:26.656702",
+      "decision": "WAIT",
+      "confidence": 80,
+      "reason": "Score=5/8 in H1 uptrend | full_ema_stack h4_trending active_session atr_normal bull_candle",
+      "price": 4718.8,
+      "rsi": 64.5,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T13:03:05.026903",
+      "decision": "WAIT",
+      "confidence": 80,
+      "reason": "Score=5/8 in H1 uptrend | full_ema_stack h4_trending active_session atr_normal bull_candle",
+      "price": 4717.5,
+      "rsi": 62.3,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T15:20:02.604776",
+      "decision": "WAIT",
+      "confidence": 80,
+      "reason": "Score=5/8 in H1 downtrend | full_ema_stack h4_trending active_session atr_normal bull_candle",
+      "price": 4677.8,
+      "rsi": 37.8,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T15:24:58.722260",
+      "decision": "WAIT",
+      "confidence": 80,
+      "reason": "Score=5/8 in H1 downtrend | full_ema_stack h4_trending active_session atr_normal bull_candle",
+      "price": 4674.4,
+      "rsi": 33.2,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T15:29:59.457305",
+      "decision": "WAIT",
+      "confidence": 80,
+      "reason": "Score=5/8 in H1 downtrend | full_ema_stack h4_trending active_session atr_normal bull_candle",
+      "price": 4668.6,
+      "rsi": 27.5,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T15:35:04.518055",
+      "decision": "WAIT",
+      "confidence": 80,
+      "reason": "Score=5/8 in H1 downtrend | full_ema_stack h4_trending active_session atr_normal bull_candle",
+      "price": 4649.3,
+      "rsi": 16.4,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T15:39:59.242928",
+      "decision": "WAIT",
+      "confidence": 75,
+      "reason": "Score=4/8 in H1 downtrend | full_ema_stack h4_trending active_session atr_normal",
+      "price": 4661.6,
+      "rsi": 40.4,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T15:50:00.110219",
+      "decision": "WAIT",
+      "confidence": 75,
+      "reason": "Score=4/8 in H1 downtrend | full_ema_stack stoch_bounce active_session atr_normal",
+      "price": 4672.2,
+      "rsi": 56.9,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T16:24:57.985407",
+      "decision": "WAIT",
+      "confidence": 75,
+      "reason": "Score=4/8 in H1 downtrend | stoch_bounce active_session atr_normal bull_candle",
+      "price": 4678.1,
+      "rsi": 59.8,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T17:15:07.039091",
+      "decision": "WAIT",
+      "confidence": 80,
+      "reason": "Score=5/8 in H1 downtrend | rsi7_extreme stoch_bounce active_session atr_normal bull_candle",
+      "price": 4682.8,
+      "rsi": 64.0,
+      "session": "",
+      "outcome": null
+    },
+    {
+      "time": "2026-05-12T17:20:01.529510",
+      "decision": "WAIT",
+      "confidence": 80,
+      "reason": "Score=5/8 in H1 downtrend | rsi7_extreme stoch_bounce active_session atr_normal bull_candle",
+      "price": 4685.0,
+      "rsi": 65.1,
+      "session": "",
+      "outcome": null
+    }
+  ]
+}
