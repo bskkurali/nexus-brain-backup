@@ -31,7 +31,7 @@ from loguru import logger
 EMA_PERIODS   = [8, 13, 21, 34, 55, 89]   # Fibonacci EMA ribbon
 SL_BELOW_EMA  = 55                          # SL below EMA55 (deep ribbon)
 TP_RR         = 2.5                         # 2.5:1 RR
-MIN_ADX       = 20                          # Minimum trend strength
+MIN_ADX       = 17                          # Minimum trend strength
 MIN_CONF      = 70                          # AI minimum confidence
 MAX_ATR_MULT  = 2.0                         # Skip on news spike
 
@@ -42,12 +42,11 @@ MAX_ATR_MULT  = 2.0                         # Skip on news spike
 
 async def get_ribbon_data() -> dict:
     """Fetch M5 + H1 data with full EMA ribbon calculation."""
-    import yfinance as yf
     import pandas as pd
 
     def _calc(tf: str, bars: int) -> dict:
-        df = yf.download("GC=F", period="7d", interval=tf,
-                         progress=False, auto_adjust=True)
+        from bot.data_feed import get_candles_sync
+        df = get_candles_sync(tf, 500)
         if df is None or df.empty:
             return {}
         df.columns = [c[0].lower() if isinstance(c, tuple) else c.lower()
@@ -254,7 +253,7 @@ def score_ribbon_signal(m5: dict, h1: dict) -> dict:
     buy_score  = sum(1 for v in buy_conds.values()  if v)
     sell_score = sum(1 for v in sell_conds.values() if v)
 
-    threshold = 6   # Ribbon needs 6/9 — stricter than Fib (ribbon has more fakeouts)
+    threshold = 5   # Ribbon needs 5/9 — aligned with Precision strategy
 
     if m5.get("ribbon_bull") and h1_bull and buy_score >= threshold:
         quality = "A+" if buy_score >= 8 else "A" if buy_score >= 7 else "B"

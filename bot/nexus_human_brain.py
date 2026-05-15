@@ -28,14 +28,11 @@ async def get_market_analysis(symbol: str = "XAUUSD") -> dict:
     M1  = entry signals (RSI7, EMA cross, MACD)
     H1  = trend direction (never trade against)
     """
-    import yfinance as yf
     import pandas as pd
 
-    ticker = "GC=F" if "XAU" in symbol.upper() else "BTC-USD"
-
     def _analyze(tf, bars):
-        df = yf.download(ticker, period="7d", interval=tf,
-                         progress=False, auto_adjust=True)
+        from bot.data_feed import get_candles_sync
+        df = get_candles_sync(tf, 500)
         if df is None or df.empty: return None
         df.columns = [c[0].lower() if isinstance(c, tuple) else c.lower()
                       for c in df.columns]
@@ -442,7 +439,7 @@ RESPOND WITH VALID JSON ONLY — no explanation, no status text, no preamble:
         sc   = scored.get("score", 0)
         conf = min(55 + sc * 5, 88)
         return {
-            "decision":     sig if sc >= 6 else "WAIT",
+            "decision":     sig if sc >= 5 else "WAIT",
             "confidence":   conf,
             "reason":       scored.get("reason","Score-based entry (AI offline)"),
             "trade_quality": "A" if sc >= 7 else "B" if sc >= 5 else "C",

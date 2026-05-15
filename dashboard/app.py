@@ -178,13 +178,38 @@ async def get_market():
 @app.get("/account")
 async def get_account():
     try:
+        from config.settings import settings
         equity=100.0; daily_pnl=0.0; trades_today=0
+
+        # Try live bridge first — most accurate
+        if not settings.is_paper and settings.use_mt5_bridge:
+            try:
+                import httpx
+                headers = {"Authorization": f"Bearer {settings.mt5_bridge_token}"}
+                async with httpx.AsyncClient(timeout=3) as c:
+                    r = await c.get(f"{settings.mt5_bridge_url}/account", headers=headers)
+                    if r.status_code == 200:
+                        bd = r.json()
+                        equity = float(bd.get("equity", bd.get("balance", 100.0)))
+                        bal    = float(bd.get("balance", equity))
+                        if os.path.exists("data/risk_state.json"):
+                            rs = json.load(open("data/risk_state.json"))
+                            daily_pnl   = float(rs.get("daily_pnl", 0.0))
+                            trades_today = int(rs.get("trades_today", 0))
+                        return {"equity": equity, "balance": bal,
+                                "daily_pnl": daily_pnl, "trades_today": trades_today,
+                                "mode": settings.execution_mode,
+                                "survival_pct": round((equity / 100) * 100, 1),
+                                "currency": "USD", "source": "bridge"}
+            except Exception:
+                pass
+
+        # Fallback: risk_state.json
         if os.path.exists("data/risk_state.json"):
             s=json.load(open("data/risk_state.json"))
             equity=float(s.get("equity",100.0))
             daily_pnl=float(s.get("daily_pnl",0.0))
             trades_today=int(s.get("trades_today",0))
-        from config.settings import settings
         return {"equity":equity,"balance":equity,"daily_pnl":daily_pnl,
                 "trades_today":trades_today,"mode":settings.execution_mode,
                 "survival_pct":round((equity/100)*100,1),"currency":"USD"}
@@ -226,12 +251,37 @@ async def get_survival():
 @app.get("/positions")
 async def get_positions():
     try:
+        from config.settings import settings
+        # Live mode — fetch real positions from MT5 bridge
+        if not settings.is_paper and settings.use_mt5_bridge:
+            try:
+                import httpx
+                headers = {"Authorization": f"Bearer {settings.mt5_bridge_token}"}
+                async with httpx.AsyncClient(timeout=3) as c:
+                    r = await c.get(f"{settings.mt5_bridge_url}/positions", headers=headers)
+                    if r.status_code == 200:
+                        bridge_pos = r.json()
+                        return [{
+                            "ticket":     str(p.get("ticket","")),
+                            "symbol":     p.get("symbol","XAUUSDm"),
+                            "direction":  p.get("type","?"),
+                            "entry":      round(float(p.get("price_open",0)),2),
+                            "stop_loss":  round(float(p.get("sl",0)),2),
+                            "take_profit":round(float(p.get("tp",0)),2),
+                            "lot_size":   p.get("volume",0.01),
+                            "pnl":        round(float(p.get("profit",0)),2),
+                            "status":     "OPEN",
+                            "mode":       "LIVE",
+                        } for p in bridge_pos]
+            except Exception:
+                pass
+
         from bot.execution import _paper_trades
         result = []
         for ticket, t in _paper_trades.items():
             status = getattr(t, "status", "OPEN")
             if status != "OPEN":
-                continue   # only show live open positions
+                continue
             result.append({
                 "ticket":     ticket,
                 "symbol":     getattr(t,"symbol","XAUUSDm"),
@@ -320,19 +370,22 @@ async def get_goals():
 @app.get("/api/ai/status")
 async def get_ai_status():
     from config.settings import settings
-    claude_ok = bool(settings.anthropic_api_key and
-                     settings.anthropic_api_key != "your_claude_key_here")
-    groq_ok   = bool(settings.grok_api_key and
-                     settings.grok_api_key != "your_groq_key_here")
-    google_ok = bool(settings.google_ai_api_key)
+    claude_ok  = bool(settings.anthropic_api_key and
+                      settings.anthropic_api_key != "your_claude_key_here")
+    google_ok  = bool(settings.google_ai_api_key)
+    google_ok2 = bool(settings.google_ai_api_key_2)
+    active = ("gemini+claude" if google_ok and claude_ok
+              else "gemini"   if google_ok
+              else "claude"   if claude_ok
+              else "none")
     return {
         "claude":  claude_ok,
-        "groq":    groq_ok,
+        "groq":    False,       # Groq removed — Gemini is primary
         "google":  google_ok,
-        "active":  ("claude+groq+gemma" if all([claude_ok,groq_ok,google_ok])
-                    else "claude+groq" if claude_ok and groq_ok
-                    else "claude" if claude_ok else "none"),
-        "mode":    "Master Brain (Claude) + Agents (Groq/Gemma)"
+        "google2": google_ok2,
+        "active":  active,
+        "mode":    "Gemini (primary) → Claude (fallback)",
+        "cascade": ["Gemini Key1", "Gemini Key2", "Claude"] if google_ok else ["Claude"],
     }
 
 # ── Agent ─────────────────────────────────────────────

@@ -19,10 +19,10 @@ class Settings(BaseSettings):
     ollama_url: str = "http://localhost:11434"
     nvidia_api_key: str = ""
     grok_api_key: str = ""
-    max_daily_loss_pct: float = 5.0
-    max_weekly_loss_pct: float = 15.0
-    max_risk_per_trade_pct: float = 2.0
-    max_trades_per_day: int = 5
+    max_daily_loss_pct: float = 10.0
+    max_weekly_loss_pct: float = 25.0
+    max_risk_per_trade_pct: float = 1.0
+    max_trades_per_day: int = 8
     dashboard_host: str = "0.0.0.0"
     dashboard_port: int = 8000
     claude_model: str = "claude-sonnet-4-6"

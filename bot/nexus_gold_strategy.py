@@ -34,13 +34,13 @@ from loguru import logger
 SL_ATR_MULT    = 1.0     # SL distance = 1×ATR (tight, behind Fibonacci level)
 TP_ATR_MULT    = 3.0     # TP distance = 3×ATR → 3:1 RR
 FIB_PROXIMITY  = 0.6     # Price must be within 0.6×ATR of a Fibonacci level
-RSI7_OS        = 35      # RSI7 oversold threshold (BUY)
-RSI7_OB        = 65      # RSI7 overbought threshold (SELL)
-RSI14_MAX_BUY  = 58      # RSI14 max for BUY entry (not overextended)
-RSI14_MIN_SELL = 42      # RSI14 min for SELL entry
-MIN_CONFIDENCE = 72      # Claude must be ≥72% confident
+RSI7_OS        = 38      # RSI7 oversold threshold (BUY)
+RSI7_OB        = 62      # RSI7 overbought threshold (SELL)
+RSI14_MAX_BUY  = 60      # RSI14 max for BUY entry (not overextended)
+RSI14_MIN_SELL = 40      # RSI14 min for SELL entry
+MIN_CONFIDENCE = 70      # Minimum AI confidence
 MAX_ATR_MULT   = 2.5     # Reject entry if ATR > 2.5× average (news spike)
-MIN_ADX        = 18      # Minimum trend strength
+MIN_ADX        = 15      # Minimum trend strength
 
 
 # ══════════════════════════════════════════════════════
@@ -90,7 +90,7 @@ def regime_score_threshold(regime: str) -> int:
     return {
         "TRENDING_UP":   5,   # Normal — trend is your friend
         "TRENDING_DOWN": 5,   # Normal
-        "RANGING":       7,   # Tighter — levels get tested both ways
+        "RANGING":       6,   # Tighter — levels get tested both ways
         "VOLATILE":      99,  # Never trade (ATR spike)
     }.get(regime, 5)
 
@@ -105,12 +105,11 @@ async def get_gold_analysis() -> dict:
     M5  → entry signals
     H1  → trend direction (hard gate)
     """
-    import yfinance as yf
     import pandas as pd
 
     def _calc(tf: str, bars: int) -> dict:
-        df = yf.download("GC=F", period="7d", interval=tf,
-                         progress=False, auto_adjust=True)
+        from bot.data_feed import get_candles_sync
+        df = get_candles_sync(tf, 500)
         if df is None or df.empty:
             return {}
         df.columns = [c[0].lower() if isinstance(c, tuple) else c.lower()
