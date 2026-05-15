@@ -181,28 +181,29 @@ async def get_account():
         from config.settings import settings
         equity=100.0; daily_pnl=0.0; trades_today=0
 
-        # Try live bridge first — most accurate
-        if not settings.is_paper and settings.use_mt5_bridge:
-            try:
-                import httpx
-                headers = {"Authorization": f"Bearer {settings.mt5_bridge_token}"}
-                async with httpx.AsyncClient(timeout=3) as c:
-                    r = await c.get(f"{settings.mt5_bridge_url}/account", headers=headers)
-                    if r.status_code == 200:
-                        bd = r.json()
-                        equity = float(bd.get("equity", bd.get("balance", 100.0)))
-                        bal    = float(bd.get("balance", equity))
-                        if os.path.exists("data/risk_state.json"):
-                            rs = json.load(open("data/risk_state.json"))
-                            daily_pnl   = float(rs.get("daily_pnl", 0.0))
-                            trades_today = int(rs.get("trades_today", 0))
-                        return {"equity": equity, "balance": bal,
-                                "daily_pnl": daily_pnl, "trades_today": trades_today,
-                                "mode": settings.execution_mode,
-                                "survival_pct": round((equity / 100) * 100, 1),
-                                "currency": "USD", "source": "bridge"}
-            except Exception:
-                pass
+        # Always try bridge first — dashboard process may not have --mode live
+        bridge_url   = settings.mt5_bridge_url or "http://localhost:5000"
+        bridge_token = settings.mt5_bridge_token or "nexus_bridge_2026"
+        try:
+            import httpx
+            headers = {"Authorization": f"Bearer {bridge_token}"}
+            async with httpx.AsyncClient(timeout=3) as c:
+                r = await c.get(f"{bridge_url}/account", headers=headers)
+                if r.status_code == 200:
+                    bd = r.json()
+                    equity = float(bd.get("equity", bd.get("balance", 100.0)))
+                    bal    = float(bd.get("balance", equity))
+                    if os.path.exists("data/risk_state.json"):
+                        rs = json.load(open("data/risk_state.json"))
+                        daily_pnl    = float(rs.get("daily_pnl", 0.0))
+                        trades_today = int(rs.get("trades_today", 0))
+                    return {"equity": equity, "balance": bal,
+                            "daily_pnl": daily_pnl, "trades_today": trades_today,
+                            "mode": "live",
+                            "survival_pct": round((equity / 100) * 100, 1),
+                            "currency": "USD", "source": "bridge"}
+        except Exception:
+            pass  # Bridge not running — fall through to risk_state.json
 
         # Fallback: risk_state.json
         if os.path.exists("data/risk_state.json"):
